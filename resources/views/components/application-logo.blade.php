@@ -1,0 +1,1 @@
+<img src="/img/Sara-nossa-terra-logo.png" alt="Dízimo Digital" width="200px" height="auto">

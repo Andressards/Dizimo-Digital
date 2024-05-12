@@ -108,6 +108,17 @@ header{
     font-size: 12px;
 }
 
+/* Consulta dos ipos de entrada*/
+
+.grid-tipo-entrada-title-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+}
+.grid-tipo-entrada-lista-container th{
+    width: 25%;
+}
+
 /* footer */
 
 footer{

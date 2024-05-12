@@ -16,7 +16,18 @@ class sistemaController extends Controller
     }
 
     public function consultaTipoEntrada() {
-        return view('consultas.grid_tipo_entrada');
+        $tipos_entrada = EntradaTipo::all();
+
+        return view('consultas.grid_cadastro_tipo_entrada', ['tipos_entrada' => $tipos_entrada]);
+    }
+
+    public function showTipoEntrada($id)
+    {
+        // Carregue o tipo de entrada com o ID fornecido
+        $tipoEntrada = EntradaTipo::findOrFail($id); // Supondo que você esteja usando o Eloquent ORM
+        
+        // Retorne a view com os detalhes do tipo de entrada
+        return view('edicao.cadastro_tipo_entrada', compact('tipoEntrada'));
     }
 
     public function store(Request $request) {

@@ -44,6 +44,9 @@
                             <a href="/cadastros/cadastro_tipo_entrada" class="nav-link">Tipo de Entrada</a>
                         </li>
                         <li class="nav-item">
+                            <a href="/consultas/grid_cadastro_tipo_entrada" class="nav-link">Grid Tipo de Entrada</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/" class="nav-link">Tipo de Saída</a>
                         </li>
                         <li class="nav-item">

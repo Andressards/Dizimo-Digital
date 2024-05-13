@@ -21,12 +21,9 @@ class sistemaController extends Controller
         return view('consultas.grid_cadastro_tipo_entrada', ['tipos_entrada' => $tipos_entrada]);
     }
 
-    public function showTipoEntrada($id)
-    {
-        // Carregue o tipo de entrada com o ID fornecido
-        $tipoEntrada = EntradaTipo::findOrFail($id); // Supondo que você esteja usando o Eloquent ORM
-        
-        // Retorne a view com os detalhes do tipo de entrada
+    public function showTipoEntrada($id){
+        $tipoEntrada = EntradaTipo::findOrFail($id);
+    
         return view('edicao.cadastro_tipo_entrada', compact('tipoEntrada'));
     }
 
@@ -38,11 +35,11 @@ class sistemaController extends Controller
 
         $entrada_tipo->save();
 
-        return redirect('/')->with('msg', 'Cadastro criado com sucesso!');
+        return redirect('/consultas/grid_cadastro_tipo_entrada')->with('msg', 'Cadastro criado com sucesso!');
     }
 
-    public function destroy($id) {
+    public function destroyTipoEntrada($id) {
         EntradaTipo::findOrFail($id)->delete();
-        return redirect('/')->with('msg', 'Registro excluido com sucesso!');
+        return redirect('/consultas/grid_cadastro_tipo_entrada')->with('msg', 'Registro excluido com sucesso!');
     }
 }

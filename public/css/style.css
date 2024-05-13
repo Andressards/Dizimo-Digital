@@ -26,7 +26,7 @@ header{
     margin-top: 20px; /* Espaço acima do botão */
 }
 
-.btn-primary{
+.btn-primary {
     background-color: #363D90;
     border: 2px solid #363D90;
     display: flex; /* Usando flexbox */
@@ -37,7 +37,7 @@ header{
     margin-right: 10px;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #727cf4;
     border: 2px solid #727cf4;
 }
@@ -113,10 +113,28 @@ header{
 .grid-tipo-entrada-title-container {
     margin-bottom: 30px;
     margin-top: 30px;
-
 }
+
 .grid-tipo-entrada-lista-container th{
     width: 25%;
+}
+
+.grid-tipo-entrada-lista-container form{
+    display: inline-block;
+}
+
+/* Tabela da consulta */
+
+.table thead th {
+    background-color: #363D90; /* Cor de fundo azul */
+    color: white; /* Cor do texto branco */
+}
+
+.table {
+    border: 2px solid #363D90;
+    border-top: 8px solid #363D90;
+    margin-bottom: 20px;
+    border-radius: 10px !important;
 }
 
 /* footer */

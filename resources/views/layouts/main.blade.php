@@ -16,7 +16,9 @@
 
         <link rel="stylesheet" href="/css/style.css">
 
-        <script src="/js/script.js"></script>
+        <!-- Script do Ionicons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         
     </head>
     <body>
@@ -41,10 +43,7 @@
                             <a href="/" class="nav-link">Registrar Saída</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/cadastros/cadastro_tipo_entrada" class="nav-link">Tipo de Entrada</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/consultas/grid_cadastro_tipo_entrada" class="nav-link">Grid Tipo de Entrada</a>
+                            <a href="/consultas/grid_cadastro_tipo_entrada" class="nav-link">Tipo de Entrada</a>
                         </li>
                         <li class="nav-item">
                             <a href="/" class="nav-link">Tipo de Saída</a>
@@ -80,7 +79,5 @@
         <footer>
             <p>Dízimo Digital &copy; 2024</p>
         </footer>
-
-        <script  nomodule  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"> </script >
     </body>
 </html>

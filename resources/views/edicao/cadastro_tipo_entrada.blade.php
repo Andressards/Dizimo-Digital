@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-    <div id="tipo-entrada-edit-container" class="edit-container">
+    <div id="tipo-entrada-edit-container" class="create-container">
         <h1 class="titulo-form" id="titulo-form-tipo-entrada">Editar Tipo de Entrada</h1>
         <form action="/cadastro_tipo_entrada/{{$tipoEntrada->id}}" method="POST">
             @csrf
-            @method('PUT') <!-- Use PUT para enviar o método HTTP PUT para atualização -->
+            <input type="hidden" name="_method" value="PUT"> <!-- Campo oculto para indicar o método PUT -->
             <div class="form-group">
                 <label for="title">Tipo de Entrada:</label>
                 <input type="text" class="form-control" id="tipo_entrada" name="tipo_entrada" placeholder="Nome do Tipo de Entrada" value="{{$tipoEntrada->tipo_entrada}}">

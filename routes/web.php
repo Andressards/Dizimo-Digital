@@ -9,12 +9,12 @@ Route::get('/', [sistemaController::class, 'index']);
 
 Route::get('/consultas/grid_cadastro_tipo_entrada', [sistemaController::class, 'consultaTipoEntrada']);
 Route::get('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'showTipoEntrada']);
-
 Route::get('/cadastros/cadastro_tipo_entrada', [sistemaController::class, 'createTipoEntrada']);
 Route::post('/cadastro_tipo_entrada', [sistemaController::class, 'store']);
+Route::delete('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'destroyTipoEntrada']);
+
 Route::get('/cadastros/cadastro_tipo_saida', [sistemaController::class, 'createTipoSaida']);
 Route::post('/cadastro_tipo_saida', [sistemaController::class, 'storeTipoSaida']);
-Route::delete('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'destroy']);
 
 
 Route::get('/dashboard', function () {

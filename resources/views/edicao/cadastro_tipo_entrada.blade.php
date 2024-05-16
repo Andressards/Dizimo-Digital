@@ -5,7 +5,7 @@
         <h1 class="titulo-form" id="titulo-form-tipo-entrada">Editar Tipo de Entrada</h1>
         <form action="/cadastro_tipo_entrada/{{$tipoEntrada->id}}" method="POST">
             @csrf
-            <input type="hidden" name="_method" value="PUT"> <!-- Campo oculto para indicar o método PUT -->
+            @method('PUT')
             <div class="form-group">
                 <label for="title">Tipo de Entrada:</label>
                 <input type="text" class="form-control" id="tipo_entrada" name="tipo_entrada" placeholder="Nome do Tipo de Entrada" value="{{$tipoEntrada->tipo_entrada}}">
@@ -19,7 +19,10 @@
             </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Atualizar">
-            </div>            
+            </div>
+            <div class="btn-container">
+                <a href="{{ url('/consultas/grid_cadastro_tipo_entrada') }}" class="btn btn-primary">Voltar</a>
+            </div>
         </form>
     </div>
 @endsection

@@ -24,7 +24,13 @@
                     <tr>
                         <td>{{$entrada_tipo->id}}</td>
                         <td>{{$entrada_tipo->tipo_entrada}}</td>
-                        <td>{{$entrada_tipo->status}}</td>
+                        <td>
+                            @if($entrada_tipo->status == 1)
+                                Ativo
+                            @else
+                                Inativo
+                            @endif
+                        </td>
                         <td>
                             <a href="/cadastro_tipo_entrada/{{$entrada_tipo->id}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
                             <form action="/cadastro_tipo_entrada/{{$entrada_tipo->id}}" method="POST">

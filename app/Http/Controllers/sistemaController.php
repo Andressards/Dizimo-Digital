@@ -16,10 +16,11 @@ class sistemaController extends Controller
     }
 
     public function consultaTipoEntrada() {
-        $tipos_entrada = EntradaTipo::all();
-
+        $tipos_entrada = EntradaTipo::orderBy('id')->get();
+    
         return view('consultas.grid_cadastro_tipo_entrada', ['tipos_entrada' => $tipos_entrada]);
     }
+    
 
     public function showTipoEntrada($id){
         $tipoEntrada = EntradaTipo::findOrFail($id);
@@ -42,4 +43,14 @@ class sistemaController extends Controller
         EntradaTipo::findOrFail($id)->delete();
         return redirect('/consultas/grid_cadastro_tipo_entrada')->with('msg', 'Registro excluido com sucesso!');
     }
+
+    public function updateTipoEntrada(Request $request, $id) {
+        $tipoEntrada = EntradaTipo::findOrFail($id);
+        $tipoEntrada->tipo_entrada = $request->tipo_entrada;
+        $tipoEntrada->status = $request->status_tipo_entrada;
+        $tipoEntrada->save();
+    
+        return redirect('/consultas/grid_cadastro_tipo_entrada')->with('msg', 'Cadastro atualizado com sucesso!');
+    }
+    
 }

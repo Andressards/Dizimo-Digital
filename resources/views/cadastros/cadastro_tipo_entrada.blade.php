@@ -17,10 +17,10 @@
                 </select>
             </div>
             <div class="btn-container">
-                <input type="button" class="btn btn-primary" value="Apagar">
+                <input type="submit" class="btn btn-primary" value="Cadastrar">
             </div>
             <div class="btn-container">
-                <input type="submit" class="btn btn-primary" value="Cadastrar">
-            </div>            
+                <a href="{{ url('/consultas/grid_cadastro_tipo_entrada') }}" class="btn btn-primary">Voltar</a>
+            </div>
         </form>
     </div>

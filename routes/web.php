@@ -12,6 +12,7 @@ Route::get('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'showTipoEn
 Route::get('/cadastros/cadastro_tipo_entrada', [sistemaController::class, 'createTipoEntrada']);
 Route::post('/cadastro_tipo_entrada', [sistemaController::class, 'store']);
 Route::delete('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'destroyTipoEntrada']);
+Route::put('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'updateTipoEntrada']);
 
 Route::get('/cadastros/cadastro_tipo_saida', [sistemaController::class, 'createTipoSaida']);
 Route::post('/cadastro_tipo_saida', [sistemaController::class, 'storeTipoSaida']);

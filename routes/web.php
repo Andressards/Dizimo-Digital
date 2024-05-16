@@ -2,20 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\sistemaController;
+use App\Http\Controllers\cadastroTipoEntradaController;
 
+Route::get('/', [cadastroTipoEntradaController::class, 'index']);
 
-Route::get('/', [sistemaController::class, 'index']);
+Route::get('/cadastros/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'createTipoEntrada']);
+Route::post('/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'store']);
+Route::get('/consultas/grid_cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'consultaTipoEntrada']);
+Route::get('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'showTipoEntrada']);
+Route::delete('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'destroyTipoEntrada']);
+Route::put('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'updateTipoEntrada']);
 
-Route::get('/consultas/grid_cadastro_tipo_entrada', [sistemaController::class, 'consultaTipoEntrada']);
-Route::get('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'showTipoEntrada']);
-Route::get('/cadastros/cadastro_tipo_entrada', [sistemaController::class, 'createTipoEntrada']);
-Route::post('/cadastro_tipo_entrada', [sistemaController::class, 'store']);
-Route::delete('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'destroyTipoEntrada']);
-Route::put('/cadastro_tipo_entrada/{id}', [sistemaController::class, 'updateTipoEntrada']);
+use App\Http\Controllers\cadastroTipoSaidaController;
 
-Route::get('/cadastros/cadastro_tipo_saida', [sistemaController::class, 'createTipoSaida']);
-Route::post('/cadastro_tipo_saida', [sistemaController::class, 'storeTipoSaida']);
+Route::get('/cadastros/cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'createTipoSaida']);
+Route::post('/cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'storeTipoSaida']);
+Route::get('/consultas/grid_cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'consultaTipoSaida']);
+Route::get('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'showTipoSaida']);
+Route::delete('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'destroyTipoSaida']);
+Route::put('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'updateTipoSaida']);
 
 
 Route::get('/dashboard', function () {

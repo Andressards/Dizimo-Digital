@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EntradaTipo;
 
-class sistemaController extends Controller
+class cadastroTipoEntradaController extends Controller
 {
     public function index() {
         return view('welcome');

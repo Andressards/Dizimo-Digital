@@ -34,19 +34,19 @@
                             <a href="/login" class="nav-link">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Cadastrar Membro</a>
+                            <a href="/dashboard" class="nav-link">Cadastrar Membro</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Registrar Entrada</a>
+                            <a href="/dashboard" class="nav-link">Registrar Entrada</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Registrar Saída</a>
+                            <a href="/dashboard" class="nav-link">Registrar Saída</a>
                         </li>
                         <li class="nav-item">
                             <a href="/consultas/grid_cadastro_tipo_entrada" class="nav-link">Tipo de Entrada</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Tipo de Saída</a>
+                            <a href="/consultas/grid_cadastro_tipo_saida" class="nav-link">Tipo de Saída</a>
                         </li>
                         <li class="nav-item">
                             <a href="/register" class="nav-link">Novo Usuário</a>

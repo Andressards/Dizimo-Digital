@@ -34,7 +34,7 @@
                             <a href="/login" class="nav-link">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Cadastrar Membro</a>
+                            <a href="/cadastros/cadastro_membro" class="nav-link">Cadastrar Membro</a>
                         </li>
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link">Registrar Entrada</a>

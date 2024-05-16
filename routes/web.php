@@ -22,6 +22,10 @@ Route::get('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'sh
 Route::delete('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'destroyTipoSaida']);
 Route::put('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'updateTipoSaida']);
 
+use App\Http\Controllers\cadastroMembroController;
+
+Route::get('/cadastros/cadastro_membro', [cadastroMembroController::class, 'createMembro']);
+Route::post('/cadastro_membro', [cadastroMembroController::class, 'storeMembro']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

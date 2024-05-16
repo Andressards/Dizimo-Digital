@@ -89,7 +89,6 @@ header{
     margin-bottom: 20px;
 }
 
-
 .titulo-form {
     position: absolute;
     top: -35px; /* Ajuste para posicionar o título acima da faixa azul */
@@ -122,6 +121,22 @@ header{
 .grid-tipo-entrada-lista-container form{
     display: inline-block;
 }
+
+
+.edit-btn, .delete-btn {
+    display: inline-block; /* Exibe os botões em linha */
+    margin-right: 5px; /* Espaçamento entre os botões */
+}
+
+.grid-tipo-saida-title-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.grid-tipo-saida-lista-container th{
+    width: 25%;
+}
+
 
 /* Tabela da consulta */
 

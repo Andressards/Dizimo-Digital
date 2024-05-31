@@ -89,6 +89,19 @@ header{
     margin-bottom: 20px;
 }
 
+#membro-create-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    padding: 20px 60px 60px;
+    border: 2px solid #363D90;
+    border-radius: 10px;
+    border-top: 50px solid #363D90;
+    margin-bottom: 20px;
+}
+
 .titulo-form {
     position: absolute;
     top: -35px; /* Ajuste para posicionar o título acima da faixa azul */

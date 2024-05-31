@@ -33,11 +33,8 @@
                         </td>
                         <td>
                             <a href="/cadastro_tipo_saida/{{$saida_tipo->id}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
-                            <form action="/cadastro_tipo_saida/{{$saida_tipo->id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger delete-btn"><ion-icon name="trash-outline"></ion-icon></button>
-                            </form>
+                            
+                            
                         </td>
                     </tr>
                 @endforeach

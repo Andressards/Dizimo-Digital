@@ -89,7 +89,7 @@ header{
     margin-bottom: 20px;
 }
 
-#membro-create-container {
+#membro-create-container, #membro-edit-container {
     position: absolute;
     top: 50%;
     left: 50%;

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
     <div id="membro-create-container" class="create-container">
-        <h1 class="titulo-form" id="titulo-form-tipo-entrada">Cadastrar Membro</h1>
+        <h1 class="titulo-form" id="titulo-form-membro">Cadastrar Membro</h1>
         <form action="/cadastro_membro" method="POST">
             @csrf
             <div class="form-group">
@@ -32,7 +32,7 @@
                 <input type="submit" class="btn btn-primary" value="Cadastrar">
             </div>
             <div class="btn-container">
-                <a href="{{ url('/consultas/grid_cadastro_tipo_entrada') }}" class="btn btn-primary">Voltar</a>
+                <a href="{{ url('/consultas/grid_cadastro_membro') }}" class="btn btn-primary">Voltar</a>
             </div>
         </form>
     </div>

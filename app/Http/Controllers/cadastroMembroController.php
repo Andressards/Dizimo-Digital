@@ -22,6 +22,36 @@ class cadastroMembroController extends Controller
 
         $membro->save();
 
-        return redirect('/consultas/grid_cadastro_tipo_entrada')->with('msg', 'Cadastro criado com sucesso!');
-    }    
+        return redirect('/consultas/grid_cadastro_membro')->with('msg', 'Cadastro criado com sucesso!');
+    }
+
+    public function consultaMembro() {
+        $membro = Membro::orderBy('id')->get();
+    
+        return view('consultas.grid_cadastro_membro', ['membro' => $membro]);
+    }
+    
+    public function destroyMembro($id) {
+        Membro::findOrFail($id)->delete();
+        return redirect('/consultas/grid_cadastro_membro')->with('msg', 'Registro excluido com sucesso!');
+    }
+
+    public function updateMembro(Request $request, $id) {
+        $membro = Membro::findOrFail($id);
+
+        $membro->nome = $request->nome;
+        $membro->cpf = $request->cpf;
+        $membro->email = $request->email;
+        $membro->telefone = $request->telefone;
+        $membro->status = $request->status_membro;
+        $membro->save();
+    
+        return redirect('/consultas/grid_cadastro_membro')->with('msg', 'Cadastro atualizado com sucesso!');
+    }
+
+    public function showMembro($id){
+        $membro = Membro::findOrFail($id);
+    
+        return view('edicao.cadastro_membro', compact('membro'));
+    }
 }

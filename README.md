@@ -1,64 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Sistema Financeiro Dízimo Digital- README
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##Sobre o Projeto
 
-## About Laravel
+Este é um sistema financeiro desenvolvido utilizando o framework Laravel. Ele permite gerenciar finanças empresariais, com funcionalidades como controle de receitas, despesas, relatórios financeiros, entre outros.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##Ferramentas Necessárias
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Para rodar este projeto, você precisará das seguintes ferramentas:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. PHP (versão 8.0 ou superior)  
+   Baixar em: https://www.php.net/downloads
 
-## Learning Laravel
+2. Composer (Gerenciador de Dependências PHP)  
+   Baixar em: https://getcomposer.org/download/
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Node.js (incluindo npm, o gerenciador de pacotes do Node)  
+   Baixar em: https://nodejs.org/en/download/
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Git (Controle de Versão)  
+   Baixar em: https://git-scm.com/downloads
 
-## Laravel Sponsors
+5. WampServer (Servidor Web, PHP, e MySQL)
+Baixar em: http://www.wampserver.com/en/
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+6. Banco de Dados (MySQL recomendado)  
+   MySQL: https://dev.mysql.com/downloads/mysql/
 
-### Premium Partners
+Passos para Rodar o Projeto
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Clone o Repositório
 
-## Contributing
+Abra seu terminal e clone o repositório do projeto:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+git clone https://github.com/Andressards/Dizimo-Digital
+```
 
-## Code of Conduct
+2. Instale as Dependências do PHP
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Navegue até o diretório do projeto e execute o Composer para instalar as dependências:
 
-## Security Vulnerabilities
+```
+cd nome-do-diretorio-do-projeto
+composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. Instale as Dependências do Node.js
 
-## License
+Instale as dependências do Node.js e compile os ativos front-end:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+npm install
+npm run dev
+```
+
+4. Configuração do Ambiente
+
+Crie um arquivo `.env` baseado no arquivo de exemplo `.env.example`:
+
+```
+cp .env.example .env
+```
+
+Edite o arquivo `.env` e configure as variáveis de ambiente, especialmente as relacionadas ao banco de dados:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nome_do_banco_de_dados
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+```
+
+5. Gere a Chave da Aplicação
+
+Gere uma nova chave para a aplicação Laravel:
+
+```
+php artisan key:generate
+```
+
+6. Migre o Banco de Dados
+
+Execute as migrações para criar as tabelas no banco de dados:
+
+```
+php artisan migrate
+```
+
+7. Inicie o Servidor de Desenvolvimento
+
+Finalmente, inicie o servidor de desenvolvimento do Laravel:
+
+```
+php artisan serve
+```
+
+O sistema estará acessível em `http://localhost:8000`.
+
+→ Links Úteis
+
+- [Documentação do Laravel](https://laravel.com/docs)
+- [Documentação do Composer](https://getcomposer.org/doc/)
+- [Documentação do Node.js](https://nodejs.org/en/docs/)

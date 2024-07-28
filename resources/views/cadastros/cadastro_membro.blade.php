@@ -13,12 +13,33 @@
                 <input type="text" class="form-control" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX">
             </div>
             <div class="form-group">
+                <label for="title">Data de Nascimento:</label>
+                <input type="date" class="form-control" id="cpf" name="cpf" placeholder="XX/XX/XXXX">
+            </div>
+            <div class="form-group">
                 <label for="title">Telefone:</label>
                 <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(XX) XXX XXX XXX">
             </div>
             <div class="form-group">
                 <label for="title">E-mail:</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="meuEmail@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="title">Bairro:</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="meuEmail@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="title">Logradouro:</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="meuEmail@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="estado_membro">Estado:</label>
+                <select class="form-control" name="estado_membro" id="estado_membro" required>
+                    <option value="" disabled selected hidden>Selecione</option>
+                    @foreach($estados as $estado)
+                        <option value="{{ $estado->id_estado }}">{{ $estado->estado }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="title">Status</label>

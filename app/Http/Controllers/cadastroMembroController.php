@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Membro;
+use App\Models\Estado;
 
 class cadastroMembroController extends Controller
 {
     public function createMembro() {
-        return view('cadastros.cadastro_membro');
+        // Recupera todos os estados do banco de dados
+        $estados = Estado::all();
+
+        // Passa os estados para a view
+        return view('cadastros.cadastro_membro', compact('estados'));
     }
 
     public function storeMembro(Request $request) {

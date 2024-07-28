@@ -17,10 +17,14 @@ class CreateMembroTable extends Migration
             $table->id();
             $table->string('nome', 150);
             $table->string('cpf', 11)->unique();
+            $table->date('data_nasc')->unique();
             $table->string('email', 200);
             $table->string('telefone', 11);
+            $table->string('bairro', 80);
+            $table->string('logradouro', 150);
+            $table->integer('id_cidade');
+            $table->string('uf');
             $table->tinyInteger('status');
-            $table->integer('id_endereco');
             $table->timestamps();
         });
     }

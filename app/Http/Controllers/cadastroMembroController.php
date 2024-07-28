@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Membro;
 use App\Models\Estado;
+use App\Models\Cidade;
 
 class cadastroMembroController extends Controller
 {
     public function createMembro() {
         // Recupera todos os estados do banco de dados
         $estados = Estado::all();
+        $cidades = Cidade::all();
 
         // Passa os estados para a view
-        return view('cadastros.cadastro_membro', compact('estados'));
+        return view('cadastros.cadastro_membro', compact('estados', 'cidades'));
     }
 
     public function storeMembro(Request $request) {
@@ -23,6 +25,11 @@ class cadastroMembroController extends Controller
         $membro->cpf = $request->cpf;
         $membro->email = $request->email;
         $membro->telefone = $request->telefone;
+        $membro->data_nasc = $request->data_nasc;
+        $membro->bairro = $request->bairro;
+        $membro->logradouro = $request->logradouro;
+        $membro->id_cidade = $request->cidade_membro;
+        $membro->uf = $request->estado_membro;
         $membro->status = $request->status_membro;
 
         $membro->save();
@@ -38,7 +45,7 @@ class cadastroMembroController extends Controller
     
     public function destroyMembro($id) {
         Membro::findOrFail($id)->delete();
-        return redirect('/consultas/grid_cadastro_membro')->with('msg', 'Registro excluido com sucesso!');
+        return redirect('/consultas/grid_cadastro_membro')->with('msg', 'Registro excluído com sucesso!');
     }
 
     public function updateMembro(Request $request, $id) {
@@ -48,7 +55,13 @@ class cadastroMembroController extends Controller
         $membro->cpf = $request->cpf;
         $membro->email = $request->email;
         $membro->telefone = $request->telefone;
+        $membro->data_nasc = $request->data_nasc;
+        $membro->bairro = $request->bairro;
+        $membro->logradouro = $request->logradouro;
+        $membro->id_cidade = $request->cidade_membro;
+        $membro->uf = $request->estado_membro;
         $membro->status = $request->status_membro;
+
         $membro->save();
     
         return redirect('/consultas/grid_cadastro_membro')->with('msg', 'Cadastro atualizado com sucesso!');

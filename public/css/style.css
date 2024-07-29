@@ -87,25 +87,40 @@ header {
     position: relative;
     width: 100%;
     max-width: 800px;
-    padding: 60px 60px 60px; /* Ajustado para dar espaço ao título */
+    padding: 60px 20px 20px 20px; /* Ajuste o padding superior para incluir a faixa azul */
     border: 2px solid #363D90;
     border-radius: 10px;
-    border-top: 50px solid #363D90;
     margin: 20px auto;
     overflow-y: auto;
+    background: white; /* Certifique-se de que o fundo do formulário seja branco */
+}
+
+.header-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #363D90;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px 20px;
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+    z-index: 1; /* Garante que a faixa azul fique acima do conteúdo */
+}
+
+.titulo-form {
+    color: white;
+    font-size: 18px;
+    margin: 0;
 }
 
 .create-container label {
     font-weight: bold;
 }
 
-.titulo-form {
-    position: absolute;
-    top: -10px; /* Ajuste para posicionar o título acima da faixa azul */
-    left: 20px; /* Ajuste para posicionar o título à esquerda */
-    color: #ffffff;
-    font-size: 18px;
-}
+
+
+
 
 .form-control input,
 .form-control select,

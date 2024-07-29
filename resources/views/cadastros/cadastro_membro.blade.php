@@ -3,7 +3,9 @@
 @section('content')
 
     <div id="membro-create-container" class="create-container">
-        <h1 class="titulo-form" id="titulo-form-membro">Cadastrar Membro</h1>
+        <div class="header-container">
+            <h1 class="titulo-form" id="titulo-form-membro">Cadastrar Membro</h1>
+        </div>
         <form action="/cadastro_membro" method="POST">
             @csrf
             <div class="form-group">

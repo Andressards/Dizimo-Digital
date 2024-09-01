@@ -118,10 +118,6 @@ header {
     font-weight: bold;
 }
 
-
-
-
-
 .form-control input,
 .form-control select,
 .form-control textarea {
@@ -129,6 +125,9 @@ header {
 }
 
 /* Consultas*/
+
+
+
 
 .grid-tipo-entrada-title-container {
     margin-bottom: 30px;
@@ -148,13 +147,21 @@ header {
     margin-right: 5px; /* Espaçamento entre os botões */
 }
 
-.grid-tipo-saida-title-container {
+.grid-tipo-saida-title-container, .grid-prestador-servico-title-container {
     margin-bottom: 30px;
     margin-top: 30px;
 }
 
 .grid-tipo-saida-lista-container th {
     width: 25%;
+}
+
+.grid-prestador-servico-lista-container th {
+    width: 25%;
+}
+
+.grid-prestador-servico-lista-container form {
+    display: inline-block;
 }
 
 /* Tabela da consulta */

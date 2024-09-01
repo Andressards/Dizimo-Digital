@@ -31,6 +31,15 @@ Route::get('/cadastro_membro/{id}', [cadastroMembroController::class, 'showMembr
 Route::delete('/cadastro_membro/{id}', [cadastroMembroController::class, 'destroyMembro']);
 Route::put('/cadastro_membro/{id}', [cadastroMembroController::class, 'updateMembro']);
 
+use App\Http\Controllers\cadastroPrestadorServicoController;
+
+Route::get('/cadastros/cadastro_prestador_servico', [cadastroPrestadorServicoController::class, 'createPrestadorServico']);
+Route::post('/cadastro_prestador_servico', [cadastroPrestadorServicoController::class, 'storePrestadorServico']);
+Route::get('/consultas/grid_cadastro_prestador_servico', [cadastroPrestadorServicoController::class, 'consultaPrestadorServico']);
+Route::get('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'showPrestadorServico']);
+Route::delete('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'destroyPrestadorServico']);
+Route::put('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'updatePrestadorServico']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

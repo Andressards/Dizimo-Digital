@@ -2,7 +2,9 @@
 
 @section('content')
     <div id="membro-edit-container" class="create-container">
-        <h1 class="titulo-form" id="titulo-form-membro">Editar Cadastro de Membro</h1>
+    <div class="header-container">
+            <h1 class="titulo-form" id="titulo-form-prestador">Atualizar Cadastro de Membross</h1>
+        </div>
         <form action="/cadastro_membro/{{$membro->id}}" method="POST">
             @csrf
             @method('PUT')

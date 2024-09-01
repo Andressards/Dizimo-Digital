@@ -29,10 +29,13 @@
             </a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/login" class="nav-link">Login</a>
+                    <a href="/consultas/dashboard_relatorio" class="nav-link">Relatórios</a>
                 </li>
                 <li class="nav-item">
                     <a href="/consultas/grid_cadastro_membro" class="nav-link">Cadastrar Membro</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/consultas/grid_cadastro_prestador_servico" class="nav-link">Prestador de Serviços</a>
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">Registrar Entrada</a>
@@ -48,6 +51,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="/register" class="nav-link">Novo Usuário</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
                     <form action="/logout" method="POST">

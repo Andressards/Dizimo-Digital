@@ -40,6 +40,15 @@ Route::get('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoControll
 Route::delete('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'destroyPrestadorServico']);
 Route::put('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'updatePrestadorServico']);
 
+use App\Http\Controllers\estadoCidadeController;
+
+// Rota para membros
+Route::get('/cadastro_membro', [cadastroMembroController::class, 'createMembro']);
+
+// Rota para carregar estados e cidades
+Route::get('/estados_cidades', [estadoCidadeController::class, 'index']);
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

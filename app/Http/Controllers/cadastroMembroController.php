@@ -69,7 +69,11 @@ class cadastroMembroController extends Controller
 
     public function showMembro($id){
         $membro = Membro::findOrFail($id);
+
+        $estados = Estado::all();
+        $cidades = Cidade::all();
     
-        return view('edicao.cadastro_membro', compact('membro'));
+        return view('edicao.cadastro_membro', compact('membro', 'estados', 'cidades'));
     }
+    
 }

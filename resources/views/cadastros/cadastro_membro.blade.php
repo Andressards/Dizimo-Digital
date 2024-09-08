@@ -41,7 +41,7 @@
                 <select class="form-control" name="estado_membro" id="estado_membro" required>
                     <option value="" disabled selected hidden>Selecione</option>
                     @foreach($estados as $estado)
-                        <option value="{{ $estado->uf }}">{{ $estado->estado }}</option>
+                        <option value="{{ $estado->uf }}">{{ $estado->nome }}</option>
                     @endforeach
                 </select>
             </div>
@@ -50,7 +50,7 @@
                 <select class="form-control" name="cidade_membro" id="cidade_membro" required>
                     <option value="" disabled selected hidden>Selecione</option>
                     @foreach($cidades as $cidade)
-                        <option value="{{ $cidade->id_cidade }}">{{ $cidade->cidade }}</option>
+                        <option value="{{ $cidade->id }}">{{ $cidade->nome }}</option>
                     @endforeach
                 </select>
             </div>

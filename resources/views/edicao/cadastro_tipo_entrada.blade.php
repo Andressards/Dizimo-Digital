@@ -2,7 +2,9 @@
 
 @section('content')
     <div id="tipo-entrada-edit-container" class="create-container">
-        <h1 class="titulo-form" id="titulo-form-tipo-entrada">Editar Tipo de Entrada</h1>
+        <div class="header-container">
+            <h1 class="titulo-form" id="titulo-form-tipo-entrada">Editar Tipo de Entrada</h1>
+        </div>
         <form action="/cadastro_tipo_entrada/{{$tipoEntrada->id}}" method="POST">
             @csrf
             @method('PUT')

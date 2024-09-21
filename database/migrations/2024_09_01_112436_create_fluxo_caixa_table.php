@@ -16,8 +16,8 @@ class CreateFluxoCaixaTable extends Migration
         Schema::create('fluxo_caixa', function (Blueprint $table) {
             $table->id();
             $table->decimal('saldo', 10, 2);
-            $table->integer('id_entrada');
-            $table->integer('id_saida');
+            $table->integer('id_entrada')->nullable();
+            $table->integer('id_saida')->nullable();;
             $table->timestamps();
         });
     }

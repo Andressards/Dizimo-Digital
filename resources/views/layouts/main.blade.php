@@ -80,7 +80,7 @@
 </main>
 
 <footer class="mt-auto">
-    <p>Dízimo Digital &copy; 2024</p>
+    <p>Dízimo Digital</p>
 </footer>
 
 </body>

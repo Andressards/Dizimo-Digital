@@ -22,16 +22,16 @@ class EntradaController extends Controller
     }
 
     public function consultaEntrada() {
-        $entradas = Entrada::orderBy('id')->get();
-    
+        $entradas = Entrada::with(['tipoEntrada', 'membro'])->orderBy('id')->get();
         return view('consultas.grid_cadastro_entrada', ['entradas' => $entradas]);
     }
-    
 
-    public function showEntrada($id){
-        $entradas = Entrada::findOrFail($id);
+    public function showEntrada($id) {
+        $entrada = Entrada::findOrFail($id);
+        $entrada_tipos = EntradaTipo::all();
+        $membros = Membro::all();
     
-        return view('edicao.cadastro_entrada', compact('entradas'));
+        return view('edicao.cadastro_entrada', compact('entrada', 'entrada_tipos', 'membros'));
     }
 
     public function storeEntrada(Request $request) {
@@ -50,7 +50,7 @@ class EntradaController extends Controller
 
     public function destroyEntrada($id) {
         Entrada::findOrFail($id)->delete();
-        return redirect('/consultas/grid_cadastro_entrada')->with('msg', 'Registro excluido com sucesso!');
+        return redirect('/consultas/grid_cadastro_entrada')->with('msg', 'Registro excluído com sucesso!');
     }
 
     public function updateEntrada(Request $request, $id) {
@@ -66,5 +66,4 @@ class EntradaController extends Controller
     
         return redirect('/consultas/grid_cadastro_entrada')->with('msg', 'Cadastro atualizado com sucesso!');
     }
-    
 }

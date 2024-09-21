@@ -45,9 +45,19 @@ use App\Http\Controllers\estadoCidadeController;
 // Rota para membros
 Route::get('/cadastro_membro', [cadastroMembroController::class, 'createMembro']);
 
+Route::get('/cadastro_tipo_entrada', [cadastroMembroController::class, 'createEntrada']);
+
 // Rota para carregar estados e cidades
 Route::get('/estados_cidades', [estadoCidadeController::class, 'index']);
 
+use App\Http\Controllers\EntradaController;
+
+Route::get('/cadastros/cadastro_entrada', [EntradaController::class, 'createEntrada']);
+Route::post('/cadastro_entrada', [EntradaController::class, 'storeEntrada']);
+Route::get('/consultas/grid_cadastro_entrada', [EntradaController::class, 'consultaEntrada']);
+Route::get('/cadastro_entrada/{id}', [EntradaController::class, 'showEntrada']);
+Route::delete('/cadastro_entrada/{id}', [EntradaController::class, 'destroyEntrada']);
+Route::put('/cadastro_entrada/{id}', [EntradaController::class, 'updateEntrada']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

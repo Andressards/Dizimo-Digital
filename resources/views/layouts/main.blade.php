@@ -38,7 +38,7 @@
                     <a href="/consultas/grid_cadastro_prestador_servico" class="nav-link">Prestador de Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">Registrar Entrada</a>
+                    <a href="/consultas/grid_cadastro_entrada" class="nav-link">Registrar Entrada</a>
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">Registrar Saída</a>

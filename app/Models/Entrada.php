@@ -11,14 +11,12 @@ class Entrada extends Model
 
     protected $table = 'entrada';
 
-    public function tipoEntrada()
-{
-    return $this->belongsTo(EntradaTipo::class, 'id_entrada_tipo');
-}
+    public function tipoEntrada() {
+        return $this->belongsTo(EntradaTipo::class, 'id_entrada_tipo');
+    }
 
-public function membro()
-{
-    return $this->belongsTo(Membro::class, 'id_membro');
-}
+    public function membro() {
+        return $this->belongsTo(Membro::class, 'id_membro');
+    }
 }
 

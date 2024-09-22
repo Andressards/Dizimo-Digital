@@ -59,6 +59,15 @@ Route::get('/cadastro_entrada/{id}', [EntradaController::class, 'showEntrada']);
 Route::delete('/cadastro_entrada/{id}', [EntradaController::class, 'destroyEntrada']);
 Route::put('/cadastro_entrada/{id}', [EntradaController::class, 'updateEntrada']);
 
+use App\Http\Controllers\SaidaController;
+
+Route::get('/cadastros/cadastro_saida', [SaidaController::class, 'createSaida']);
+Route::post('/cadastro_saida', [SaidaController::class, 'storeSaida']);
+Route::get('/consultas/grid_cadastro_saida', [SaidaController::class, 'consultaSaida']);
+Route::get('/cadastro_saida/{id}', [SaidaController::class, 'showSaida']);
+Route::delete('/cadastro_saida/{id}', [SaidaController::class, 'destroySaida']);
+Route::put('/cadastro_saida/{id}', [SaidaController::class, 'updateSaida']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -41,7 +41,7 @@
                     <a href="/consultas/grid_cadastro_entrada" class="nav-link">Registrar Entrada</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">Registrar Saída</a>
+                    <a href="/consultas/grid_caadastro_saida" class="nav-link">Registrar Saída</a>
                 </li>
                 <li class="nav-item">
                     <a href="/consultas/grid_cadastro_tipo_entrada" class="nav-link">Tipo de Entrada</a>

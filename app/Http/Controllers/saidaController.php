@@ -48,6 +48,7 @@ class SaidaController extends Controller
             'status' => 'required|boolean',
             'tipo_saida' => 'required|exists:saida_tipo,id',
             'membro' => 'required|exists:membro,id',
+            'prestador_servico' => 'required|exists:prestador_servico,id',
         ]);
     
         // Criando um novo registro na tabela 'saida'
@@ -59,6 +60,7 @@ class SaidaController extends Controller
         $saida->id_saida_tipo = $request->tipo_saida; 
         $saida->id_membro = $request->membro;
         $saida->id_prestador_servico = $request->prestador_servico;
+        $saida->descricao_diversos = $request->descricao;
     
         // Salvando o registro no banco de dados
         $saida->save();
@@ -107,6 +109,7 @@ class SaidaController extends Controller
         $saidas->id_saida_tipo = $request->tipo_saida;
         $saidas->id_membro = $request->membro;
         $saidas->id_prestador_servico = $request->prestador_servico;
+        $saidas->descricao_diversos = $request->descricao;
 
         $saidas->save();
     

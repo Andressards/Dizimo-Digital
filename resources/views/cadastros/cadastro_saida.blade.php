@@ -22,19 +22,10 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="membro">Nome do Membro:</label>
-        <select class="form-control" name="membro" id="membro" required>
-            <option value="" disabled selected hidden>Selecione</option>
-            @foreach($membros as $membro)
-                <option value="{{ $membro->id }}">{{ $membro->nome }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="form-group">
         <label for="prestador_servico">Prestador de Serviço:</label>
         <select class="form-control" name="prestador_servico" id="prestador_servico" required>
             <option value="" disabled selected hidden>Selecione</option>
-            @foreach($prestador_servicos as $prestador_servico)
+            @foreach($prestador as $prestador_servico)
                 <option value="{{ $prestador_servico->id }}">{{ $prestador_servico->nome }}</option>
             @endforeach
         </select>

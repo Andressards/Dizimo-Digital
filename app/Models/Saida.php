@@ -12,7 +12,7 @@ class Saida extends Model
     protected $table = 'saida';
 
     public function tipoSaida() {
-        return $this->belongsTo(EntradaTipo::class, 'id_saida_tipo');
+        return $this->belongsTo(SaidaTipo::class, 'id_saida_tipo');
     }
 
     public function membro() {

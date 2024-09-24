@@ -42,11 +42,6 @@ Route::put('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoControll
 
 use App\Http\Controllers\estadoCidadeController;
 
-// Rota para membros
-Route::get('/cadastro_membro', [cadastroMembroController::class, 'createMembro']);
-
-Route::get('/cadastro_tipo_entrada', [cadastroMembroController::class, 'createEntrada']);
-
 // Rota para carregar estados e cidades
 Route::get('/estados_cidades', [estadoCidadeController::class, 'index']);
 

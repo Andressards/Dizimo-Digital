@@ -9,8 +9,7 @@ Route::get('/', function () {
 use App\Http\Controllers\dashboardController; // Importa o controller
 
 // Rota para o dashboard
-Route::get('/consultas/dashboard_relatorio', [dashboardController::class, 'index'])->name('dashboard.relatorio');
-
+Route::get('/consultas/dashboard_relatorio', [dashboardController::class, 'entrada'])->name('dashboard.relatorio');
 
 
 use App\Http\Controllers\cadastroTipoEntradaController;

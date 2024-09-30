@@ -190,6 +190,13 @@ header {
     border-radius: 10px !important;
 }
 
+/* GRÁFICOS */
+
+#titulo-graficos {
+    font-family: 'Roboto';
+    font-size: 12px;
+}
+
 /* footer */
 
 footer {

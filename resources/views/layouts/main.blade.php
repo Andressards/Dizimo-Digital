@@ -29,7 +29,7 @@
             </a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/consultas/dashboard_relatorio" class="nav-link">Relatórios</a>
+                    <a href="/consultas/dashboard_relatorio" class="nav-link">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a href="/consultas/grid_cadastro_membro" class="nav-link">Cadastrar Membro</a>

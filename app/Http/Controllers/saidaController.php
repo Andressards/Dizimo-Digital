@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Saida;
-use App\Models\Membro;
 use App\Models\FluxoCaixa;
 use App\Models\PrestadorServico;
 use App\Models\SaidaTipo;
@@ -12,32 +11,26 @@ use Illuminate\Support\Facades\DB;
 
 class SaidaController extends Controller
 {
-    public function index() {
-        return view('welcome');
-    }
-
     public function createSaida(Request $request) {
         $saida_tipos = SaidaTipo::all();
-        $membros = Membro::all();
         $prestador = PrestadorServico::all();
     
         // Retorna a view com os dados atualizados
-        return view('cadastros.cadastro_saida', compact('saida_tipos', 'membros', 'prestador'));
+        return view('cadastros.cadastro_saida', compact('saida_tipos', 'prestador'));
     }
     
 
     public function consultaSaida() {
-        $saidas = Saida::with(['tipoSaida', 'membro', 'prestadorServico'])->orderBy('id')->get();
+        $saidas = Saida::with(['tipoSaida', 'prestadorServico'])->orderBy('id')->get();
         return view('consultas.grid_cadastro_saida', ['saidas' => $saidas]);
     }
 
     public function showSaida($id) {
         $saida = Saida::findOrFail($id);
         $saida_tipos = SaidaTipo::all();
-        $membros = Membro::all();
         $prestador = PrestadorServico::all();
     
-        return view('edicao.cadastro_saida', compact('saida', 'saida_tipos', 'membros', 'prestador'));
+        return view('edicao.cadastro_saida', compact('saida', 'saida_tipos', 'prestador'));
     }
 
     public function storeSaida(Request $request) {
@@ -47,7 +40,6 @@ class SaidaController extends Controller
             'data_saida' => 'required|date',
             'status' => 'required|boolean',
             'tipo_saida' => 'required|exists:saida_tipo,id',
-            'membro' => 'required|exists:membro,id',
             'prestador_servico' => 'required|exists:prestador_servico,id',
         ]);
     
@@ -57,8 +49,7 @@ class SaidaController extends Controller
         $saida->valor = $request->valor;
         $saida->data_saida = $request->data_saida;
         $saida->status = $request->status;
-        $saida->id_saida_tipo = $request->tipo_saida; 
-        $saida->id_membro = $request->membro;
+        $saida->id_saida_tipo = $request->tipo_saida;
         $saida->id_prestador_servico = $request->prestador_servico;
         $saida->descricao_diversos = $request->descricao;
     
@@ -73,7 +64,7 @@ class SaidaController extends Controller
         $valor_inserido = $request->valor;
     
         // Calcula o novo saldo
-        $novo_saldo = $saldo_atual + $valor_inserido;
+        $novo_saldo = $saldo_atual - $valor_inserido;
     
         // Inserindo o saldo atualizado no fluxo de caixa
         DB::beginTransaction();
@@ -91,7 +82,7 @@ class SaidaController extends Controller
         }
     
         // Redireciona após sucesso
-        return redirect('/consultas/grid_cadastro_saida')->with('success', 'Saída registrada com sucesso!');
+        return redirect('/consultas/grid_cadastro_saida')->with('msg', 'Saída registrada com sucesso!');
     }
     
 
@@ -107,7 +98,6 @@ class SaidaController extends Controller
         $saidas->data_saida = $request->data_saida;
         $saidas->status = $request->status;
         $saidas->id_saida_tipo = $request->tipo_saida;
-        $saidas->id_membro = $request->membro;
         $saidas->id_prestador_servico = $request->prestador_servico;
         $saidas->descricao_diversos = $request->descricao;
 

@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class EntradaController extends Controller
 {
-    public function index() {
-        return view('welcome');
-    }
-
     public function createEntrada(Request $request) {
         $entrada_tipos = EntradaTipo::all();
         $membros = Membro::all();

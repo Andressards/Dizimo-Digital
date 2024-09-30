@@ -13,7 +13,7 @@
         <input type="number" class="form-control" id="valor_entrada" name="valor" placeholder="R$00,00" step="0.01" required>
     </div>
     <div class="form-group">
-        <label for="tipo_entrada">Tipo de Saída:</label>
+        <label for="tipo_saida">Tipo de Saída:</label>
         <select class="form-control" name="tipo_saida" id="tipo_saida" required>
             <option value="" disabled selected hidden>Selecione</option>
             @foreach($saida_tipos as $saida_tipo)

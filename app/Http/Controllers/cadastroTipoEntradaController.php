@@ -7,10 +7,6 @@ use App\Models\EntradaTipo;
 
 class cadastroTipoEntradaController extends Controller
 {
-    public function index() {
-        return view('welcome');
-    }
-
     public function createTipoEntrada() {
         return view('cadastros.cadastro_tipo_entrada');
     }

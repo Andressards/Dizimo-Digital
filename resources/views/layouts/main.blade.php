@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse" id="navbar">
             <a href="/" class="navbar-brand">
-                <img src="/img/Sara-nossa-terra-logo.png" alt="Dízimo Digital">
+                <img src="/img/logo.png" alt="Dízimo Digital">
             </a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -51,9 +51,6 @@
                 </li>
                 <li class="nav-item">
                     <a href="/register" class="nav-link">Novo Usuário</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/login" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
                     <form action="/logout" method="POST">

@@ -2,9 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\cadastroTipoEntradaController;
+Route::get('/', function () {
+    return redirect('/login'); // Redireciona para a página de login
+});
 
-Route::get('/', [cadastroTipoEntradaController::class, 'index']);
+use App\Http\Controllers\dashboardController; // Importa o controller
+
+// Rota para o dashboard
+Route::get('/consultas/dashboard_relatorio', [dashboardController::class, 'index'])->name('dashboard.relatorio');
+
+
+
+use App\Http\Controllers\cadastroTipoEntradaController;
 
 Route::get('/cadastros/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'createTipoEntrada']);
 Route::post('/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'store']);

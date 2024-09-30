@@ -28,6 +28,18 @@ header {
     overflow-y: auto;
 }
 
+.tela-inicio {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    
+}
+
+.tela-inicio img {
+    width: 200px;
+}
+
+
 .btn-container {
     text-align: center; /* Centraliza o conteúdo horizontalmente */
     margin-top: 20px; /* Espaço acima do botão */
@@ -62,8 +74,8 @@ header {
 /* navbar */
 
 #navbar img {
-    width: 80px;
-    padding: 8px;
+    width: 40px;
+    padding: 2px;
 }
 
 #navbar {

@@ -65,11 +65,9 @@ npm run dev
 
 4. Configuração do Ambiente
 
-Crie um arquivo `.env` baseado no arquivo de exemplo `.env.example`:
+Crie o banco de dados:
 
-```
-cp .env.example .env
-```
+CREATE DATABASE dizimoDigital;
 
 Edite o arquivo `.env` e configure as variáveis de ambiente, especialmente as relacionadas ao banco de dados:
 
@@ -114,6 +112,26 @@ O sistema estará acessível em `http://localhost:8000`.
 - [Documentação do Composer](https://getcomposer.org/doc/)
 - [Documentação do Node.js](https://nodejs.org/en/docs/)
 
+Inserção do usuário: 
+
+-- Para acessar o sistema seu email será = admin@gmail.com e a senha: 12345678
+
+insert into dizimodigital.users (
+	name,
+    email,
+    password,
+    remember_token,
+    created_at,
+    updated_at
+)
+values (
+	'admin',
+    'admin@gmail.com',
+    '$2y$10$bkyw4Vs5Hapk1cu1rrP.COUVynxQjRcxJXKnmpc1U3zIjoZffWw4.',
+    'LfOMJhZ7HW5GsS80re3Z1yCmIDf1Ujv9xcuNVZJ2GYpw59ORIstO2eMwy375',
+    now(),
+    now()
+);
 
 INSERT INTO `estado` (`id`, `nome`, `uf`, `ibge`) VALUES
 (1, 'Acre', 'AC', 12),

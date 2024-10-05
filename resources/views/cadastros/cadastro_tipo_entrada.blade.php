@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
+@section('content')
+
     <div id="tipo-entrada-create-container" class="create-container">
-        <h1 class="titulo-form" id="titulo-form-tipo-entrada">Cadastrar Tipo de Entrada</h1>
+        <div class="header-container">
+            <h1 class="titulo-form" id="titulo-form-tipo-entrada">Cadastrar Tipo de Entrada</h1>
+        </div>
         <form action="/cadastro_tipo_entrada" method="POST">
             @csrf
             <div class="form-group">
@@ -24,3 +28,5 @@
             </div>
         </form>
     </div>
+
+@endsection

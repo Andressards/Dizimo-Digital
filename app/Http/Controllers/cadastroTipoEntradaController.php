@@ -48,5 +48,24 @@ class cadastroTipoEntradaController extends Controller
     
         return redirect('/consultas/grid_cadastro_tipo_entrada')->with('msg', 'Cadastro atualizado com sucesso!');
     }
+
+    public function index(Request $request)
+{
+    $query = EntradaTipo::query();
+
+    if ($request->filled('nome')) {
+        $query->where('tipo_entrada', 'like', '%' . $request->input('nome') . '%');
+    }
+
+    if ($request->filled('status')) {
+        $query->where('status', $request->input('status'));
+    }
+
+    $tipos_entrada = $query->get();
+
+    return view('consultas.grid_cadastro_tipo_entrada', compact('tipos_entrada'));
+}
+
+
     
 }

@@ -197,6 +197,27 @@ header {
     font-size: 12px;
 }
 
+/* FILTRO */
+
+.grid-tipo-entrada-filter-container {
+    margin-bottom: 20px;
+}
+
+.grid-tipo-entrada-filter-container .form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.grid-tipo-entrada-filter-container .form-control {
+    width: 100%;
+}
+
+.grid-tipo-entrada-lista-container .table {
+    margin-top: 20px;
+}
+
+
+
 /* footer */
 
 footer {

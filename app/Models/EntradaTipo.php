@@ -10,4 +10,5 @@ class EntradaTipo extends Model
     use HasFactory;
 
     protected $table = 'entrada_tipo';
+    protected $fillable = ['tipo_entrada', 'status'];
 }

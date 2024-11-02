@@ -16,10 +16,11 @@ use App\Http\Controllers\cadastroTipoEntradaController;
 
 Route::get('/cadastros/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'createTipoEntrada']);
 Route::post('/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'store']);
-Route::get('/consultas/grid_cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'consultaTipoEntrada']);
+Route::get('/consultas/grid_cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'index'])->name('consulta_tipo_entrada');
 Route::get('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'showTipoEntrada']);
 Route::delete('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'destroyTipoEntrada']);
 Route::put('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'updateTipoEntrada']);
+
 
 use App\Http\Controllers\cadastroTipoSaidaController;
 

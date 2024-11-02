@@ -10,4 +10,5 @@ class SaidaTipo extends Model
     use HasFactory;
 
     protected $table = 'saida_tipo';
+    protected $fillable = ['tipo_saida', 'status'];
 }

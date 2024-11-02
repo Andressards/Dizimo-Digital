@@ -26,7 +26,7 @@ use App\Http\Controllers\cadastroTipoSaidaController;
 
 Route::get('/cadastros/cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'createTipoSaida']);
 Route::post('/cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'storeTipoSaida']);
-Route::get('/consultas/grid_cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'consultaTipoSaida']);
+Route::get('/consultas/grid_cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'index'])->name('consulta_tipo_saida');
 Route::get('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'showTipoSaida']);
 Route::delete('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'destroyTipoSaida']);
 Route::put('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'updateTipoSaida']);

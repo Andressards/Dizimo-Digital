@@ -7,10 +7,6 @@ use App\Models\SaidaTipo;
 
 class cadastroTipoSaidaController extends Controller
 {
-    public function index() {
-        return view('welcome');
-    }
-
     public function createTipoSaida() {
         return view('cadastros.cadastro_tipo_saida');
     }
@@ -19,8 +15,7 @@ class cadastroTipoSaidaController extends Controller
         $tipos_saida = SaidaTipo::orderBy('id')->get();
     
         return view('consultas.grid_cadastro_tipo_saida', ['tipos_saida' => $tipos_saida]);
-    }
-    
+    }   
 
     public function showTipoSaida($id){
         $tipoSaida = SaidaTipo::findOrFail($id);
@@ -52,5 +47,21 @@ class cadastroTipoSaidaController extends Controller
     
         return redirect('/consultas/grid_cadastro_tipo_saida')->with('msg', 'Cadastro atualizado com sucesso!');
     }
-    
+ 
+    public function index(Request $request)
+    {
+        $query = SaidaTipo::query();
+
+        if ($request->filled('nome')) {
+            $query->where('tipo_saida', 'like', '%' . $request->input('nome') . '%');
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->input('status'));
+        }
+
+        $tipos_saida = $query->get();
+
+        return view('consultas.grid_cadastro_tipo_saida', compact('tipos_saida'));
+    }
 }

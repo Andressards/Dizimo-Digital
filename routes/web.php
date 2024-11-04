@@ -44,7 +44,7 @@ use App\Http\Controllers\cadastroPrestadorServicoController;
 
 Route::get('/cadastros/cadastro_prestador_servico', [cadastroPrestadorServicoController::class, 'createPrestadorServico']);
 Route::post('/cadastro_prestador_servico', [cadastroPrestadorServicoController::class, 'storePrestadorServico']);
-Route::get('/consultas/grid_cadastro_prestador_servico', [cadastroPrestadorServicoController::class, 'consultaPrestadorServico']);
+Route::get('/consultas/grid_cadastro_prestador_servico', [cadastroPrestadorServicoController::class, 'index'])->name('consulta_prestador_servico');
 Route::get('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'showPrestadorServico']);
 Route::delete('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'destroyPrestadorServico']);
 Route::put('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'updatePrestadorServico']);

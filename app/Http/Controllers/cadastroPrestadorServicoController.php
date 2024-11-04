@@ -7,10 +7,6 @@ use App\Models\PrestadorServico;
 
 class cadastroPrestadorServicoController extends Controller
 {
-    public function index() {
-        return view('welcome');
-    }
-
     public function createPrestadorServico() {
         return view('cadastros.cadastro_prestador_servico');
     }
@@ -53,4 +49,27 @@ class cadastroPrestadorServicoController extends Controller
         return redirect('/consultas/grid_cadastro_prestador_servico')->with('msg', 'Cadastro atualizado com sucesso!');
     }
     
+    public function index(Request $request)
+    {
+        // Captura o filtro de nome e status
+        $nome = $request->input('nome');
+        $status = $request->input('status');
+
+        // Filtra os registros
+        $prestador_servico = PrestadorServico::query();
+
+        if ($nome) {
+            $prestador_servico->where('nome', 'like', '%' . $nome . '%');
+        }
+
+        if (isset($status)) {
+            $prestador_servico->where('status', $status);
+        }
+
+        $prestador_servico = $prestador_servico->get();
+
+        // Retorna a view com as variáveis de filtro e dados dos prestadores
+        return view('consultas.grid_cadastro_prestador_servico', compact('prestador_servico', 'nome', 'status'));
+    }
+
 }

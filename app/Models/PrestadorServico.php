@@ -10,4 +10,5 @@ class PrestadorServico extends Model
     use HasFactory;
 
     protected $table = 'prestador_servico';
+    protected $fillable = ['nome', 'status'];
 }

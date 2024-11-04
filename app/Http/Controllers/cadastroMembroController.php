@@ -75,5 +75,22 @@ class cadastroMembroController extends Controller
     
         return view('edicao.cadastro_membro', compact('membro', 'estados', 'cidades'));
     }
+
+    public function index(Request $request)
+    {
+        $query = Membro::query();
+
+        if ($request->filled('nome')) {
+            $query->where('nome', 'like', '%' . $request->input('nome') . '%');
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->input('status'));
+        }
+
+        $membro = $query->get();
+
+        return view('consultas.grid_cadastro_membro', compact('membro'));
+    }
     
 }

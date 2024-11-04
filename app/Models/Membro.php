@@ -10,4 +10,5 @@ class Membro extends Model
     use HasFactory;
 
     protected $table = 'membro';
+    protected $fillable = ['nome', 'status'];
 }

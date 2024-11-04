@@ -35,7 +35,7 @@ use App\Http\Controllers\cadastroMembroController;
 
 Route::get('/cadastros/cadastro_membro', [cadastroMembroController::class, 'createMembro']);
 Route::post('/cadastro_membro', [cadastroMembroController::class, 'storeMembro']);
-Route::get('/consultas/grid_cadastro_membro', [cadastroMembroController::class, 'consultaMembro']);
+Route::get('/consultas/grid_cadastro_membro', [cadastroMembroController::class, 'index'])->name('consulta_cadastro_membro');
 Route::get('/cadastro_membro/{id}', [cadastroMembroController::class, 'showMembro']);
 Route::delete('/cadastro_membro/{id}', [cadastroMembroController::class, 'destroyMembro']);
 Route::put('/cadastro_membro/{id}', [cadastroMembroController::class, 'updateMembro']);

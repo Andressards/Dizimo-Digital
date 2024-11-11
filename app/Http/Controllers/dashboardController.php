@@ -33,6 +33,22 @@ class DashboardController extends Controller
         $despesaMonths = $despesas->pluck('month');
         $despesaTotals = $despesas->pluck('total_despesa');
 
-        return view('consultas.dashboard_relatorio', compact('months', 'totals', 'despesaMonths', 'despesaTotals')); // Renderiza a view com os dados
+        // Formatar dados para o gráfico de pizza
+        $porcentoReceita = $totals->sum(); // Soma total das receitas
+        $porcentoDespesa = $despesaTotals->sum(); // Soma total das despesas
+
+        // Consulta para obter a quantidade de entrada por tipo de entrada
+        $entradasPorTipo = DB::table('entrada')
+            ->select('id_entrada_tipo', DB::raw('COUNT(*) as quantidade'))
+            ->where('status', '=', 1)
+            ->groupBy('id_entrada_tipo')
+            ->get();
+
+        // Formatar dados para o gráfico de colunas de tipos de entrada
+        $tiposEntrada = $entradasPorTipo->pluck('tipo_entrada');
+        $quantidadesEntrada = $entradasPorTipo->pluck('quantidade');
+
+        return view('consultas.dashboard_relatorio', compact('months', 'totals', 'despesaMonths', 'despesaTotals', 'porcentoReceita', 'porcentoDespesa', 'tiposEntrada', 'quantidadesEntrada'
+        )); // Renderiza a view com os dados
     }
 }

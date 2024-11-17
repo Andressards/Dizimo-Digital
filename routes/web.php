@@ -11,6 +11,10 @@ use App\Http\Controllers\dashboardController; // Importa o controller
 // Rota para o dashboard
 Route::get('/consultas/dashboard_relatorio', [dashboardController::class, 'entrada'])->name('dashboard.relatorio');
 
+// Rota para o método 'entrada' do DashboardController
+Route::get('/dashboard/entrada', [DashboardController::class, 'entrada'])->name('dashboard.entrada');
+
+
 
 use App\Http\Controllers\cadastroTipoEntradaController;
 

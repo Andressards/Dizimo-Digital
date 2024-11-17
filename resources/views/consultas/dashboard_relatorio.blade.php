@@ -4,6 +4,44 @@
 <div class="container mt-5">
     <h1 class="text-center">Painel de Controle</h1>
 
+    <!-- Filtros e Totais -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <form method="GET" action="{{ route('dashboard.entrada') }}" class="d-flex align-items-center mb-4">
+                <label for="mes" class="me-2">Filtrar por Mês:</label>
+                <input type="month" id="mes" name="mes" class="form-control me-2" value="{{ $filtroMes }}">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total de Entradas</h5>
+                    <p class="text-success fs-4">R$ {{ number_format($totalEntrada, 2, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Total de Saídas</h5>
+                    <p class="text-danger fs-4">R$ {{ number_format($totalSaida, 2, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>Saldo</h5>
+                    <p class="text-primary fs-4">R$ {{ number_format($saldo, 2, ',', '.') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <section>
         <!-- Gráfico de Saldo de Entrada por Mês (Barras) -->
         <div class="row justify-content-center mt-4">
@@ -17,17 +55,11 @@
                 <h4 class="text-center">Saldo de Despesas</h4>
                 <canvas id="despesaChart" width="200" height="200"></canvas> <!-- Canvas ajustado -->
             </div>
-        </div>
-        <div class="row justify-content-center mt-4">
+
             <!-- Gráfico de Pizza para Distribuição de Receita e Despesa -->
             <div class="col-md-3"> <!-- Ocupa 1/4 da tela usando col-md-3 -->
-                <h4 class="text-center">Distribuição de Receita e Despesa</h4>
+                <h4 class="text-center">Distribuição de Movimentação</h4>
                 <canvas id="pizzaChart" width="200" height="200"></canvas> <!-- Canvas para o gráfico de pizza -->
-            </div>
-            <!-- Gráfico de Tipos de Entrada (Colunas) -->
-            <div class="col-md-3">
-                <h4 class="text-center">Quantidade de Entradas por Tipo</h4>
-                <canvas id="tipoEntradaChart" width="200" height="200"></canvas>
             </div>
         </div>
 
@@ -116,29 +148,6 @@
                                     return `${context.label}: ${value} (${percentage}%)`;
                                 }
                             }
-                        }
-                    }
-                }
-            });
-
-            // Gráfico de Tipos de Entrada (Colunas)
-            const ctx4 = document.getElementById('tipoEntradaChart').getContext('2d');
-            const tipoEntradaChart = new Chart(ctx4, {
-                type: 'bar',
-                data: {
-                    labels: {!! json_encode($tiposEntrada) !!}, // Tipos de entrada no eixo X
-                    datasets: [{
-                        label: 'Quantidade de Entradas',
-                        data: {!! json_encode($quantidadesEntrada) !!}, // Quantidades de cada tipo
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true // Eixo Y inicia do zero
                         }
                     }
                 }

@@ -38,14 +38,6 @@
         <label for="data_saida">Data de Saída:</label>
         <input type="date" class="form-control" id="data_saida" name="data_saida" required>
     </div>
-    <div class="form-group">
-        <label for="status">Status:</label>
-        <select class="form-control" name="status" id="status" required>
-            <option value="" disabled selected hidden>Selecione</option>
-            <option value="1">Ativo</option>
-            <option value="0">Inativo</option>
-        </select>
-    </div>
     <div class="btn-container">
         <input type="submit" class="btn btn-primary" value="Cadastrar">
     </div>

@@ -59,13 +59,6 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
-                <label for="title">Status</label>
-                <select class="form-control" name="status_membro" id="status_membro">
-                    <option value="1" {{$membro->status_membro == 1 ? 'selected' : ''}}>Sim</option>
-                    <option value="0" {{$membro->status_membro == 0 ? 'selected' : ''}}>Não</option>
-                </select>
-            </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Atualizar">
             </div>

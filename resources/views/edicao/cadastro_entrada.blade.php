@@ -40,14 +40,6 @@
                 <label for="data_entrada">Data de Entrada:</label>
                 <input type="date" class="form-control" id="data_entrada" name="data_entrada" value="{{ $entrada->data_entrada }}" required>
             </div>
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <select class="form-control" name="status" id="status">
-                    <option value="" disabled selected hidden>Selecione</option>
-                    <option value="1" {{ $entrada->status == 1 ? 'selected' : '' }}>Sim</option>
-                    <option value="0" {{ $entrada->status == 0 ? 'selected' : '' }}>Não</option>
-                </select>
-            </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Atualizar">
             </div>

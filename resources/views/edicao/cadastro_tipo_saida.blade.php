@@ -12,13 +12,6 @@
                 <label for="title">Tipo de Saída:</label>
                 <input type="text" class="form-control" id="tipo_saida" name="tipo_saida" placeholder="Nome do Tipo de Saída" value="{{$tipoSaida->tipo_saida}}">
             </div>
-            <div class="form-group">
-                <label for="title">Status</label>
-                <select class="form-control" name="status_tipo_saida" id="status_tipo_saida">
-                    <option value="1" {{$tipoSaida->status == 1 ? 'selected' : ''}}>Sim</option>
-                    <option value="0" {{$tipoSaida->status == 0 ? 'selected' : ''}}>Não</option>
-                </select>
-            </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Atualizar">
             </div>

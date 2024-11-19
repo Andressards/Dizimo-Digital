@@ -12,14 +12,6 @@
                 <label for="title">Tipo de Entrada:</label>
                 <input type="text" class="form-control" id="tipo_entrada" name="tipo_entrada" placeholder="Nome do Tipo de Entrada">
             </div>
-            <div class="form-group">
-                <label for="title">Status</label>
-                <select class="form-control" name="status_tipo_entrada" id="status_tipo_entrada">
-                    <option value="" disabled selected hidden>Selecione</option>
-                    <option value="1">Sim</option>
-                    <option value="0">Não</option>
-                </select>
-            </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Cadastrar">
             </div>

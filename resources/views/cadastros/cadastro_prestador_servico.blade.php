@@ -12,14 +12,6 @@
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
             </div>
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <select class="form-control" name="status" id="status">
-                    <option value="" disabled selected hidden>Selecione</option>
-                    <option value="1">Sim</option>
-                    <option value="0">Não</option>
-                </select>
-            </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Cadastrar">
             </div>

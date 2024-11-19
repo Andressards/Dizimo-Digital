@@ -54,14 +54,6 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
-                <label for="status_membro">Status:</label>
-                <select class="form-control" name="status_membro" id="status_membro">
-                    <option value="" disabled selected hidden>Selecione</option>
-                    <option value="1">Ativo</option>
-                    <option value="0">Inativo</option>
-                </select>
-            </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Cadastrar">
             </div>

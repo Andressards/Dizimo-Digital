@@ -13,13 +13,6 @@
                 <label for="title">Nome:</label>
                 <input type="text" class="form-control" id="prestador_servico" name="nome" placeholder="Nome" value="{{$prestador_servico->nome}}">
             </div>
-            <div class="form-group">
-                <label for="title">Status</label>
-                <select class="form-control" name="status" id="status_prestador_servico">
-                    <option value="1" {{$prestador_servico->status == 1 ? 'selected' : ''}}>Sim</option>
-                    <option value="0" {{$prestador_servico->status == 0 ? 'selected' : ''}}>Não</option>
-                </select>
-            </div>
             <div class="btn-container">
                 <input type="submit" class="btn btn-primary" value="Atualizar">
             </div>

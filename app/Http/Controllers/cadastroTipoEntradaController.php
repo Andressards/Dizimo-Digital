@@ -65,5 +65,23 @@ class cadastroTipoEntradaController extends Controller
 
         return view('consultas.grid_cadastro_tipo_entrada', compact('tipos_entrada'));
     }
-    
+ 
+    public function ativar($id)
+    {
+        $entrada_tipo = EntradaTipo::findOrFail($id);
+        $entrada_tipo->status = true;
+        $entrada_tipo->save();
+
+        return redirect()->back()->with('success', 'Registro ativado com sucesso!');
+    }
+
+    public function inativar($id)
+    {
+        $entrada_tipo = EntradaTipo::findOrFail($id);
+        $entrada_tipo->status = false;
+        $entrada_tipo->save();
+
+        return redirect()->back()->with('success', 'Registro inativado com sucesso!');
+    }
+
 }

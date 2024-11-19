@@ -23,7 +23,10 @@ Route::post('/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'st
 Route::get('/consultas/grid_cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'index'])->name('consulta_tipo_entrada');
 Route::get('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'showTipoEntrada']);
 Route::delete('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'destroyTipoEntrada']);
-Route::put('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'updateTipoEntrada']);
+Route::put('/cadastro_tipo_entrada/{id}', [cadastroTipoEntradaController::class, 'update']);
+Route::post('/cadastro_tipo_entrada/{id}/ativar', [cadastroTipoEntradaController::class, 'ativar'])->name('entrada_tipo.ativar');
+Route::post('/cadastro_tipo_entrada/{id}/inativar', [cadastroTipoEntradaController::class, 'inativar'])->name('entrada_tipo.inativar');
+
 
 
 use App\Http\Controllers\cadastroTipoSaidaController;

@@ -93,4 +93,21 @@ class cadastroMembroController extends Controller
         return view('consultas.grid_cadastro_membro', compact('membro'));
     }
     
+    public function ativar($id)
+    {
+        $membro = Membro::findOrFail($id);
+        $membro->status = true;
+        $membro->save();
+
+        return redirect()->back()->with('success', 'Registro ativado com sucesso!');
+    }
+
+    public function inativar($id)
+    {
+        $membro = Membro::findOrFail($id);
+        $membro->status = false;
+        $membro->save();
+
+        return redirect()->back()->with('success', 'Registro inativado com sucesso!');
+    }
 }

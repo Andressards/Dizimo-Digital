@@ -63,8 +63,23 @@
                         </td>
                         <td>
                             <a href="/cadastro_membro/{{$membro->id}}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon></a>
-                            
-                            
+                            @if($membro->status == false)
+                                <!-- Botão para Ativar -->
+                                <form action="{{ route('membro.ativar', $membro->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">
+                                        <ion-icon name="checkmark-outline"></ion-icon> Ativar
+                                    </button>
+                                </form>
+                            @else
+                                <!-- Botão para Inativar -->
+                                <form action="{{ route('membro.inativar', $membro->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-warning">
+                                        <ion-icon name="close-outline"></ion-icon> Inativar
+                                    </button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

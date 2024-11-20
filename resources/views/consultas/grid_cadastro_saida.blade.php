@@ -33,7 +33,23 @@
                             <a href="/cadastro_saida/{{$saida->id}}" class="btn btn-info edit-btn">
                                 <ion-icon name="create-outline"></ion-icon>
                             </a>
-                            
+                            @if($saida->status == false)
+                                <!-- Botão para Ativar -->
+                                <form action="{{ route('saida.ativar', $saida->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">
+                                        <ion-icon name="checkmark-outline"></ion-icon> Ativar
+                                    </button>
+                                </form>
+                            @else
+                                <!-- Botão para Inativar -->
+                                <form action="{{ route('saida.inativar', $saida->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-warning">
+                                        <ion-icon name="close-outline"></ion-icon> Inativar
+                                    </button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

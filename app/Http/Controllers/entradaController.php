@@ -104,4 +104,22 @@ class EntradaController extends Controller
     
         return redirect('/consultas/grid_cadastro_entrada')->with('msg', 'Cadastro atualizado com sucesso!');
     }
+
+    public function ativar($id)
+    {
+        $entradas = Entrada::findOrFail($id);
+        $entradas->status = true;
+        $entradas->save();
+
+        return redirect()->back()->with('success', 'Registro ativado com sucesso!');
+    }
+
+    public function inativar($id)
+    {
+        $entradas = Entrada::findOrFail($id);
+        $entradas->status = false;
+        $entradas->save();
+
+        return redirect()->back()->with('success', 'Registro inativado com sucesso!');
+    }
 }

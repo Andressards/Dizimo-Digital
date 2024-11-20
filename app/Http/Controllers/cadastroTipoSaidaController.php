@@ -64,4 +64,22 @@ class cadastroTipoSaidaController extends Controller
 
         return view('consultas.grid_cadastro_tipo_saida', compact('tipos_saida'));
     }
+
+    public function ativar($id)
+    {
+        $saida_tipo = SaidaTipo::findOrFail($id);
+        $saida_tipo->status = true;
+        $saida_tipo->save();
+
+        return redirect()->back()->with('success', 'Registro ativado com sucesso!');
+    }
+
+    public function inativar($id)
+    {
+        $saida_tipo = SaidaTipo::findOrFail($id);
+        $saida_tipo->status = false;
+        $saida_tipo->save();
+
+        return redirect()->back()->with('success', 'Registro inativado com sucesso!');
+    }
 }

@@ -19,7 +19,6 @@ class SaidaController extends Controller
         return view('cadastros.cadastro_saida', compact('saida_tipos', 'prestador'));
     }
     
-
     public function consultaSaida() {
         $saidas = Saida::with(['tipoSaida', 'prestadorServico'])->orderBy('id')->get();
         return view('consultas.grid_cadastro_saida', ['saidas' => $saidas]);
@@ -104,5 +103,23 @@ class SaidaController extends Controller
         $saidas->save();
     
         return redirect('/consultas/grid_cadastro_saida')->with('msg', 'Cadastro atualizado com sucesso!');
+    }
+
+    public function ativar($id)
+    {
+        $saidas = Saida::findOrFail($id);
+        $saidas->status = true;
+        $saidas->save();
+
+        return redirect()->back()->with('success', 'Registro ativado com sucesso!');
+    }
+
+    public function inativar($id)
+    {
+        $saidas = Saida::findOrFail($id);
+        $saidas->status = false;
+        $saidas->save();
+
+        return redirect()->back()->with('success', 'Registro inativado com sucesso!');
     }
 }

@@ -16,7 +16,6 @@ class cadastroPrestadorServicoController extends Controller
     
         return view('consultas.grid_cadastro_prestador_servico', ['prestador_servico' => $prestador_servico]);
     }
-    
 
     public function showPrestadorServico($id){
         $prestador_servico = PrestadorServico::findOrFail($id);
@@ -72,4 +71,21 @@ class cadastroPrestadorServicoController extends Controller
         return view('consultas.grid_cadastro_prestador_servico', compact('prestador_servico', 'nome', 'status'));
     }
 
+    public function ativar($id)
+    {
+        $prestador_servico = PrestadorServico::findOrFail($id);
+        $prestador_servico->status = true;
+        $prestador_servico->save();
+
+        return redirect()->back()->with('success', 'Registro ativado com sucesso!');
+    }
+
+    public function inativar($id)
+    {
+        $prestador_servico = PrestadorServico::findOrFail($id);
+        $prestador_servico->status = false;
+        $prestador_servico->save();
+
+        return redirect()->back()->with('success', 'Registro inativado com sucesso!');
+    }
 }

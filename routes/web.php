@@ -15,7 +15,6 @@ Route::get('/consultas/dashboard_relatorio', [dashboardController::class, 'entra
 Route::get('/dashboard/entrada', [DashboardController::class, 'entrada'])->name('dashboard.entrada');
 
 
-
 use App\Http\Controllers\cadastroTipoEntradaController;
 
 Route::get('/cadastros/cadastro_tipo_entrada', [cadastroTipoEntradaController::class, 'createTipoEntrada']);
@@ -28,7 +27,6 @@ Route::post('/cadastro_tipo_entrada/{id}/ativar', [cadastroTipoEntradaController
 Route::post('/cadastro_tipo_entrada/{id}/inativar', [cadastroTipoEntradaController::class, 'inativar'])->name('entrada_tipo.inativar');
 
 
-
 use App\Http\Controllers\cadastroTipoSaidaController;
 
 Route::get('/cadastros/cadastro_tipo_saida', [cadastroTipoSaidaController::class, 'createTipoSaida']);
@@ -37,6 +35,9 @@ Route::get('/consultas/grid_cadastro_tipo_saida', [cadastroTipoSaidaController::
 Route::get('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'showTipoSaida']);
 Route::delete('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'destroyTipoSaida']);
 Route::put('/cadastro_tipo_saida/{id}', [cadastroTipoSaidaController::class, 'updateTipoSaida']);
+Route::post('/cadastro_tipo_saida/{id}/ativar', [cadastroTipoSaidaController::class, 'ativar'])->name('saida_tipo.ativar');
+Route::post('/cadastro_tipo_saida/{id}/inativar', [cadastroTipoSaidaController::class, 'inativar'])->name('saida_tipo.inativar');
+
 
 use App\Http\Controllers\cadastroMembroController;
 
@@ -46,6 +47,8 @@ Route::get('/consultas/grid_cadastro_membro', [cadastroMembroController::class, 
 Route::get('/cadastro_membro/{id}', [cadastroMembroController::class, 'showMembro']);
 Route::delete('/cadastro_membro/{id}', [cadastroMembroController::class, 'destroyMembro']);
 Route::put('/cadastro_membro/{id}', [cadastroMembroController::class, 'updateMembro']);
+Route::post('/cadastro_membro/ativar/{id}', [cadastroMembroController::class, 'ativar'])->name('membro.ativar');
+Route::post('/cadastro_membro/inativar/{id}', [cadastroMembroController::class, 'inativar'])->name('membro.inativar');
 
 use App\Http\Controllers\cadastroPrestadorServicoController;
 
@@ -55,6 +58,9 @@ Route::get('/consultas/grid_cadastro_prestador_servico', [cadastroPrestadorServi
 Route::get('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'showPrestadorServico']);
 Route::delete('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'destroyPrestadorServico']);
 Route::put('/cadastro_prestador_servico/{id}', [cadastroPrestadorServicoController::class, 'updatePrestadorServico']);
+Route::post('/prestador_servico/ativar/{id}', [cadastroPrestadorServicoController::class, 'ativar'])->name('prestador_servico.ativar');
+Route::post('/prestador_servico/inativar/{id}', [cadastroPrestadorServicoController::class, 'inativar'])->name('prestador_servico.inativar');
+
 
 use App\Http\Controllers\estadoCidadeController;
 
@@ -69,6 +75,8 @@ Route::get('/consultas/grid_cadastro_entrada', [EntradaController::class, 'consu
 Route::get('/cadastro_entrada/{id}', [EntradaController::class, 'showEntrada']);
 Route::delete('/cadastro_entrada/{id}', [EntradaController::class, 'destroyEntrada']);
 Route::put('/cadastro_entrada/{id}', [EntradaController::class, 'updateEntrada']);
+Route::post('/cadastro_entrada/ativar/{id}', [EntradaController::class, 'ativar'])->name('entrada.ativar');
+Route::post('/cadastro_entrada/inativar/{id}', [EntradaController::class, 'inativar'])->name('entrada.inativar');
 
 use App\Http\Controllers\SaidaController;
 
@@ -78,6 +86,8 @@ Route::get('/consultas/grid_cadastro_saida', [SaidaController::class, 'consultaS
 Route::get('/cadastro_saida/{id}', [SaidaController::class, 'showSaida']);
 Route::delete('/cadastro_saida/{id}', [SaidaController::class, 'destroySaida']);
 Route::put('/cadastro_saida/{id}', [SaidaController::class, 'updateSaida']);
+Route::post('/cadastro_saida/ativar/{id}', [SaidaController::class, 'ativar'])->name('saida.ativar');
+Route::post('/cadastro_saida/inativar/{id}', [SaidaController::class, 'inativar'])->name('saida.inativar');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

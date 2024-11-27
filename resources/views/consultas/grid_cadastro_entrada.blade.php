@@ -8,6 +8,30 @@
         <a href="/cadastros/cadastro_entrada/" class="btn btn-primary"><ion-icon name="add-outline"></ion-icon>Novo</a>
     </div>
 </div>
+
+<div class="col-md-10 offset-md-1 grid-tipo-entrada-filter-container">
+    <form method="GET" action="{{ route('consulta_tipo_saida') }}">
+        <div class="form-row">
+            <div class="col">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" class="form-control" placeholder="Filtrar por tipo" value="{{ request()->get('nome') }}">
+            </div>
+            <div class="col">
+                <label for="status">Status:</label>
+                <select id="status" name="status" class="form-control">
+                    <option value="">Filtrar por status</option>
+                    <option value="1" {{ request()->get('status') == '1' ? 'selected' : '' }}>Ativo</option>
+                    <option value="0" {{ request()->get('status') == '0' ? 'selected' : '' }}>Inativo</option>
+                </select>
+            </div>
+            <div class="col d-flex align-items-end">
+                <button type="submit" class="btn btn-primary mr-2">Filtrar</button>
+                <a href="{{ route('consulta_tipo_saida') }}" class="btn btn-secondary">Limpar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
 <div class="col-md-10 offset-md-1 grid-entrada-lista-container">
     @if(count($entradas) > 0)
         <table class="table">

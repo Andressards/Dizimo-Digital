@@ -50,7 +50,7 @@
                     <a href="/consultas/grid_cadastro_tipo_saida" class="nav-link">Tipo de Saída</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/register" class="nav-link">Novo Usuário</a>
+                    <a href="/consultas/grid_cadastro_usuario" class="nav-link">Novo Usuário</a>
                 </li>
                 <li class="nav-item">
                     <form action="/logout" method="POST">

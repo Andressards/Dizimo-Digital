@@ -49,7 +49,7 @@ class EntradaController extends Controller
         $entrada = new Entrada;
         $entrada->valor = $request->valor;
         $entrada->data_entrada = $request->data_entrada;
-        $entrada->status = $request->status;
+        $entrada->status = true;
         $entrada->id_entrada_tipo = $request->tipo_entrada; 
         $entrada->id_membro = $request->membro;
     
@@ -96,7 +96,6 @@ class EntradaController extends Controller
 
         $entradas->valor = $request->valor;
         $entradas->data_entrada = $request->data_entrada;
-        $entradas->status = $request->status;
         $entradas->id_entrada_tipo = $request->tipo_entrada;
         $entradas->id_membro = $request->membro;
 

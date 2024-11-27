@@ -28,7 +28,7 @@ class cadastroTipoEntradaController extends Controller
         $entrada_tipo = new EntradaTipo;
 
         $entrada_tipo->tipo_entrada = $request->tipo_entrada;
-        $entrada_tipo->status = $request->status_tipo_entrada;
+        $entrada_tipo->status = true;
 
         $entrada_tipo->save();
 
@@ -43,7 +43,6 @@ class cadastroTipoEntradaController extends Controller
     public function updateTipoEntrada(Request $request, $id) {
         $tipoEntrada = EntradaTipo::findOrFail($id);
         $tipoEntrada->tipo_entrada = $request->tipo_entrada;
-        $tipoEntrada->status = $request->status_tipo_entrada;
         $tipoEntrada->save();
     
         return redirect('/consultas/grid_cadastro_tipo_entrada')->with('msg', 'Cadastro atualizado com sucesso!');

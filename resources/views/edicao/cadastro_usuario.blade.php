@@ -1,23 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-
     <div id="tipo-entrada-create-container" class="create-container">
         <div class="header-container">
             <h1 class="titulo-form" id="titulo-form-tipo-entrada">Editar Usuário</h1>
         </div>
-
-        <!-- Alterei o método para PUT ou PATCH para indicar edição -->
-        <form method="POST" action="{{ route('usuario.update', $usuario->id) }}">
+        <form method="POST" action="/cadastro_usuario/{{$usuario->id}}">
             @csrf
-            @method('PUT') <!-- Usando PUT para indicar que é uma atualização -->
-
+            @method('PUT')
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $usuario->name) }}" required>
-                @error('name')
-                    <small class="text-danger">{{ $message }}</small>
-                @enderror
+                <input type="text" class="form-control" id="name" name="name" value="{{ $usuario->nome}}" required>
             </div>
 
             <div class="form-group">
@@ -43,6 +36,10 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Atualizar</button>
+
+            <div class="btn-container">
+                <a href="{{ url('/consultas/grid_cadastro_usuario') }}" class="btn btn-primary">Voltar</a>
+            </div>
         </form>
     </div>
 

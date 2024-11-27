@@ -6,7 +6,7 @@
     <h1>Lista de Usuários</h1>
     <div class="btn-container">
         <a href="/cadastros/cadastro_usuario" class="btn btn-primary">
-            <ion-icon name="add-outline"></ion-icon> Novo Usuário
+            <ion-icon name="add-outline"></ion-icon> Novo
         </a>
     </div>
 </div>
@@ -45,9 +45,9 @@
                         <td>{{ $usuario->name }}</td>
                         <td>{{ $usuario->email }}</td>
                         <td>
-                            <a href="/edicao/cadastro_usuario/{{ $usuario->id }}/edit" class="btn btn-info edit-btn">
-                                <ion-icon name="create-outline"></ion-icon> Editar
-                            </a>
+                        <a href="{{ route('usuario.edit', $usuario->id) }}" class="btn btn-info edit-btn">
+    <ion-icon name="create-outline"></ion-icon>
+</a>
                         </td>
                     </tr>
                 @endforeach

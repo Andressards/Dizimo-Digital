@@ -38,7 +38,12 @@
                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+            <div class="btn-container">
+                <a href="{{ url('/consultas/grid_cadastro_usuario') }}" class="btn btn-primary">Voltar</a>
+            </div>
         </form>
     </div>
 

@@ -30,7 +30,7 @@ class cadastroMembroController extends Controller
         $membro->logradouro = $request->logradouro;
         $membro->id_cidade = $request->cidade_membro;
         $membro->uf = $request->estado_membro;
-        $membro->status = $request->status_membro;
+        $membro->status = true;
 
         $membro->save();
 
@@ -60,7 +60,6 @@ class cadastroMembroController extends Controller
         $membro->logradouro = $request->logradouro;
         $membro->id_cidade = $request->cidade_membro;
         $membro->uf = $request->estado_membro;
-        $membro->status = $request->status_membro;
 
         $membro->save();
     

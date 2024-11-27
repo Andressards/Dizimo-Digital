@@ -64,32 +64,32 @@ class cadastroUsuarioController extends Controller
 }
 
 public function update(Request $request, $id)
-{
-    // Validação dos dados
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users,email,' . $id, // Excluindo o próprio usuário da validação de email único
-        'password' => 'nullable|string|min:8|confirmed', // Senha opcional
-    ]);
+    {
+        // Validação dos dados
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id, // Excluindo o próprio usuário da validação de email único
+            'password' => 'nullable|string|min:8|confirmed', // Senha opcional
+        ]);
 
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $usuario = User::findOrFail($id);
+        
+        // Atualiza os dados do usuário
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        
+        // Se a senha foi preenchida, atualiza a senha
+        if ($request->filled('password')) {
+            $usuario->password = Hash::make($request->password);
+        }
+
+        $usuario->save();
+
+        return redirect('qconsultas/cadastro_usuario')->with('msg', 'Usuário atualizado com sucesso!');
     }
-
-    $usuario = User::findOrFail($id);
-    
-    // Atualiza os dados do usuário
-    $usuario->name = $request->name;
-    $usuario->email = $request->email;
-    
-    // Se a senha foi preenchida, atualiza a senha
-    if ($request->filled('password')) {
-        $usuario->password = Hash::make($request->password);
-    }
-
-    $usuario->save();
-
-    return redirect()->route('usuarios.index')->with('success', 'Usuário atualizado com sucesso!');
-}
 
 }

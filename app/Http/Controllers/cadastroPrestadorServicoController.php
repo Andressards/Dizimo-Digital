@@ -27,7 +27,7 @@ class cadastroPrestadorServicoController extends Controller
         $prestador_servico = new PrestadorServico;
 
         $prestador_servico->nome = $request->nome;
-        $prestador_servico->status = $request->status;
+        $prestador_servico->status = true;
 
         $prestador_servico->save();
 
@@ -42,7 +42,6 @@ class cadastroPrestadorServicoController extends Controller
     public function updatePrestadorServico(Request $request, $id) {
         $prestador_servico = PrestadorServico::findOrFail($id);
         $prestador_servico->nome = $request->nome;
-        $prestador_servico->status = $request->status;
         $prestador_servico->save();
     
         return redirect('/consultas/grid_cadastro_prestador_servico')->with('msg', 'Cadastro atualizado com sucesso!');

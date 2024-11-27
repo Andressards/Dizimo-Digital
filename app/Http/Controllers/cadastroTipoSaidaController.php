@@ -27,7 +27,7 @@ class cadastroTipoSaidaController extends Controller
         $saida_tipo = new SaidaTipo;
 
         $saida_tipo->tipo_saida = $request->tipo_saida;
-        $saida_tipo->status = $request->status_tipo_saida;
+        $saida_tipo->status = true;
 
         $saida_tipo->save();
 
@@ -42,7 +42,6 @@ class cadastroTipoSaidaController extends Controller
     public function updateTipoSaida(Request $request, $id) {
         $saida_tipo = SaidaTipo::findOrFail($id);
         $saida_tipo->tipo_saida = $request->tipo_saida;
-        $saida_tipo->status = $request->status_tipo_saida;
         $saida_tipo->save();
     
         return redirect('/consultas/grid_cadastro_tipo_saida')->with('msg', 'Cadastro atualizado com sucesso!');

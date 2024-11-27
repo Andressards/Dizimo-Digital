@@ -47,7 +47,7 @@ class SaidaController extends Controller
 
         $saida->valor = $request->valor;
         $saida->data_saida = $request->data_saida;
-        $saida->status = $request->status;
+        $saida->status = true;
         $saida->id_saida_tipo = $request->tipo_saida;
         $saida->id_prestador_servico = $request->prestador_servico;
         $saida->descricao_diversos = $request->descricao;
@@ -95,7 +95,6 @@ class SaidaController extends Controller
 
         $saidas->valor = $request->valor;
         $saidas->data_saida = $request->data_saida;
-        $saidas->status = $request->status;
         $saidas->id_saida_tipo = $request->tipo_saida;
         $saidas->id_prestador_servico = $request->prestador_servico;
         $saidas->descricao_diversos = $request->descricao;

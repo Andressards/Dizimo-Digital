@@ -57,19 +57,19 @@ class cadastroUsuarioController extends Controller
         return view('consultas.grid_cadastro_tipo_usuario', ['user' => $usuarios]);
     }  
 
-    public function edit($id)
-{
-    $usuario = User::findOrFail($id);
-    return view('cadastros.cadastro_usuario', compact('usuario')); // Ou a view correspondente
-}
+        public function edit($id)
+    {
+        $usuario = User::findOrFail($id);
+        return view('edicao.cadastro_usuario', compact('usuario'));
+    }
 
-public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         // Validação dos dados
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $id, // Excluindo o próprio usuário da validação de email único
-            'password' => 'nullable|string|min:8|confirmed', // Senha opcional
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
 
         if ($validator->fails()) {
@@ -77,19 +77,20 @@ public function update(Request $request, $id)
         }
 
         $usuario = User::findOrFail($id);
-        
-        // Atualiza os dados do usuário
+
+        // Atualiza os dados
         $usuario->name = $request->name;
         $usuario->email = $request->email;
-        
-        // Se a senha foi preenchida, atualiza a senha
+
         if ($request->filled('password')) {
             $usuario->password = Hash::make($request->password);
         }
 
         $usuario->save();
 
-        return redirect('qconsultas/cadastro_usuario')->with('msg', 'Usuário atualizado com sucesso!');
+        // Redireciona para a lista de usuários
+        return redirect()->route('usuarios.index')->with('msg', 'Usuário atualizado com sucesso!');
     }
+
 
 }

@@ -5,12 +5,12 @@
         <div class="header-container">
             <h1 class="titulo-form" id="titulo-form-tipo-entrada">Editar Usuário</h1>
         </div>
-        <form method="POST" action="/cadastro_usuario/{{$usuario->id}}">
+        <form method="POST" action="{{ route('usuario.update', $usuario->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $usuario->nome}}" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $usuario->name}}" required>
             </div>
 
             <div class="form-group">
@@ -35,7 +35,9 @@
                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
             </div>
 
-            <button type="submit" class="btn btn-primary">Atualizar</button>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            <div class="btn-container">
 
             <div class="btn-container">
                 <a href="{{ url('/consultas/grid_cadastro_usuario') }}" class="btn btn-primary">Voltar</a>

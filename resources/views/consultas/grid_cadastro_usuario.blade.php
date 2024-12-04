@@ -5,13 +5,11 @@
 <div class="col-md-10 offset-md-1 grid-usuarios-title-container">
     <h1>Lista de Usuários</h1>
     <div class="btn-container">
-        <a href="/cadastros/cadastro_usuario" class="btn btn-primary">
-            <ion-icon name="add-outline"></ion-icon> Novo
-        </a>
+        <a href="/cadastros/cadastro_usuario" class="btn btn-primary"><ion-icon name="add-outline"></ion-icon>Novo</a>
     </div>
 </div>
 
-<div class="col-md-10 offset-md-1 grid-usuarios-filter-container">
+<div class="col-md-10 offset-md-1 grid-tipo-entrada-filter-container">
     <form method="GET" action="{{ route('usuarios.index') }}">
         <div class="form-row">
             <div class="col">

@@ -96,7 +96,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/cadastro_usuario', [cadastroUsuarioController::class, 'store'])->name('usuario.store');
     Route::get('/consultas/grid_cadastro_usuario', [cadastroUsuarioController::class, 'index'])->name('usuarios.index');
     Route::get('/edicao/cadastro_usuario/{id}/edit', [cadastroUsuarioController::class, 'edit'])->name('usuario.edit');
-    Route::put('/edicao/cadastro_usuario/{id}', [cadastroUsuarioController::class, 'update'])->name('usuario.update');
+    Route::put('/cadastro_usuario/{id}', [cadastroUsuarioController::class, 'update'])->name('usuario.update');
 });
 
 

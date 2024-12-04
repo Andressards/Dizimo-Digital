@@ -69,14 +69,15 @@ Route::get('/estados_cidades', [estadoCidadeController::class, 'index']);
 
 use App\Http\Controllers\EntradaController;
 
-Route::get('/cadastros/cadastro_entrada', [EntradaController::class, 'createEntrada']);
-Route::post('/cadastro_entrada', [EntradaController::class, 'storeEntrada']);
-Route::get('/consultas/grid_cadastro_entrada', [EntradaController::class, 'consultaEntrada']);
-Route::get('/cadastro_entrada/{id}', [EntradaController::class, 'showEntrada']);
-Route::delete('/cadastro_entrada/{id}', [EntradaController::class, 'destroyEntrada']);
-Route::put('/cadastro_entrada/{id}', [EntradaController::class, 'updateEntrada']);
+Route::get('/cadastros/cadastro_entrada', [EntradaController::class, 'createEntrada'])->name('entrada.create');
+Route::post('/cadastro_entrada', [EntradaController::class, 'storeEntrada'])->name('entrada.store');
+Route::get('/consultas/grid_cadastro_entrada', [EntradaController::class, 'consultaEntrada'])->name('entrada.index');
+Route::get('/cadastro_entrada/{id}', [EntradaController::class, 'showEntrada'])->name('entrada.show');
+Route::put('/cadastro_entrada/{id}', [EntradaController::class, 'updateEntrada'])->name('entrada.update');
+Route::delete('/cadastro_entrada/{id}', [EntradaController::class, 'destroyEntrada'])->name('entrada.destroy');
 Route::post('/cadastro_entrada/ativar/{id}', [EntradaController::class, 'ativar'])->name('entrada.ativar');
 Route::post('/cadastro_entrada/inativar/{id}', [EntradaController::class, 'inativar'])->name('entrada.inativar');
+
 
 use App\Http\Controllers\SaidaController;
 

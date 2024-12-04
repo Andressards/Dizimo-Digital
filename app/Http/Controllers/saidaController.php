@@ -37,7 +37,6 @@ class SaidaController extends Controller
         $validatedData = $request->validate([
             'valor' => 'required|numeric',
             'data_saida' => 'required|date',
-            'status' => 'required|boolean',
             'tipo_saida' => 'required|exists:saida_tipo,id',
             'prestador_servico' => 'required|exists:prestador_servico,id',
         ]);

@@ -40,7 +40,6 @@ class EntradaController extends Controller
         $validatedData = $request->validate([
             'valor' => 'required|numeric',
             'data_entrada' => 'required|date',
-            'status' => 'required|boolean',
             'tipo_entrada' => 'required|exists:entrada_tipo,id',
             'membro' => 'required|exists:membro,id', // Corrigido para 'membros'
         ]);

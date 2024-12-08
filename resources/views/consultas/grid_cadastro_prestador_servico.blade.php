@@ -49,7 +49,7 @@
                         <td>{{$prestador->id}}</td>
                         <td>{{$prestador->nome}}</td>
                         <td>
-                            @if($prestador->status == 1)
+                            @if($prestador->status == true)
                                 Ativo
                             @else
                                 Inativo

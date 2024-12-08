@@ -55,7 +55,7 @@
                         <td>{{$membro->telefone}}</td>
                         <td>{{$membro->cpf}}</td>
                         <td>
-                            @if($membro->status_membro != 1)
+                            @if($membro->status == true)
                                 Ativo
                             @else
                                 Inativo

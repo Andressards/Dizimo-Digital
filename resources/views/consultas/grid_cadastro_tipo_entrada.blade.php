@@ -49,7 +49,7 @@
                         <td>{{$entrada_tipo->id}}</td>
                         <td>{{$entrada_tipo->tipo_entrada}}</td>
                         <td>
-                            @if($entrada_tipo->status == 1)
+                            @if($entrada_tipo->status == true)
                                 Ativo
                             @else
                                 Inativo

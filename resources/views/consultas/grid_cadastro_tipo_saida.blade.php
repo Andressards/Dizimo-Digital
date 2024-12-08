@@ -49,7 +49,7 @@
                         <td>{{$saida_tipo->id}}</td>
                         <td>{{$saida_tipo->tipo_saida}}</td>
                         <td>
-                            @if($saida_tipo->status == 1)
+                            @if($saida_tipo->status == true)
                                 Ativo
                             @else
                                 Inativo

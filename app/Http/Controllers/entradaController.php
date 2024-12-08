@@ -21,11 +21,25 @@ class EntradaController extends Controller
         return view('cadastros.cadastro_entrada', compact('entrada_tipos', 'membros'));
     }
     
-
-    public function consultaEntrada() {
-        $entradas = Entrada::with(['tipoEntrada', 'membro'])->orderBy('id')->get();
+    public function consultaEntrada(Request $request) {
+        $query = Entrada::with(['tipoEntrada', 'membro']);
+    
+        // Filtro por nome do tipo de entrada
+        if ($request->filled('nome')) {
+            $query->whereHas('tipoEntrada', function ($q) use ($request) {
+                $q->where('tipo_entrada', 'LIKE', '%' . $request->nome . '%');
+            });
+        }
+    
+        // Filtro por status
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+    
+        $entradas = $query->orderBy('id')->get();
+    
         return view('consultas.grid_cadastro_entrada', ['entradas' => $entradas]);
-    }
+    }    
 
     public function showEntrada($id) {
         $entrada = Entrada::findOrFail($id);
@@ -145,7 +159,7 @@ class EntradaController extends Controller
         $entradas->status = true;
         $entradas->save();
 
-        return redirect()->back()->with('success', 'Registro ativado com sucesso!');
+        return redirect()->route('consulta_entrada')->with('success', 'Registro ativado com sucesso!');
     }
 
     public function inativar($id)
@@ -154,6 +168,6 @@ class EntradaController extends Controller
         $entradas->status = false;
         $entradas->save();
 
-        return redirect()->back()->with('success', 'Registro inativado com sucesso!');
+        return redirect()->route('consulta_entrada')->with('success', 'Registro inativado com sucesso!');
     }
 }

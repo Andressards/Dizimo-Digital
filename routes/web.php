@@ -71,7 +71,7 @@ use App\Http\Controllers\EntradaController;
 
 Route::get('/cadastros/cadastro_entrada', [EntradaController::class, 'createEntrada'])->name('entrada.create');
 Route::post('/cadastro_entrada', [EntradaController::class, 'storeEntrada'])->name('entrada.store');
-Route::get('/consultas/grid_cadastro_entrada', [EntradaController::class, 'consultaEntrada'])->name('entrada.index');
+Route::get('/consultas/grid_cadastro_entrada', [EntradaController::class, 'consultaEntrada'])->name('consulta_entrada');
 Route::get('/cadastro_entrada/{id}', [EntradaController::class, 'showEntrada'])->name('entrada.show');
 Route::put('/cadastro_entrada/{id}', [EntradaController::class, 'updateEntrada'])->name('entrada.update');
 Route::delete('/cadastro_entrada/{id}', [EntradaController::class, 'destroyEntrada'])->name('entrada.destroy');
@@ -83,7 +83,7 @@ use App\Http\Controllers\SaidaController;
 
 Route::get('/cadastros/cadastro_saida', [SaidaController::class, 'createSaida']);
 Route::post('/cadastro_saida', [SaidaController::class, 'storeSaida']);
-Route::get('/consultas/grid_cadastro_saida', [SaidaController::class, 'consultaSaida']);
+Route::get('/consultas/grid_cadastro_saida', [SaidaController::class, 'consultaSaida'])->name('consulta_saida');
 Route::get('/cadastro_saida/{id}', [SaidaController::class, 'showSaida']);
 Route::delete('/cadastro_saida/{id}', [SaidaController::class, 'destroySaida']);
 Route::put('/cadastro_saida/{id}', [SaidaController::class, 'updateSaida']);

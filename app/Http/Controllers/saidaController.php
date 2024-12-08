@@ -19,10 +19,25 @@ class SaidaController extends Controller
         return view('cadastros.cadastro_saida', compact('saida_tipos', 'prestador'));
     }
     
-    public function consultaSaida() {
-        $saidas = Saida::with(['tipoSaida', 'prestadorServico'])->orderBy('id')->get();
+    public function consultaSaida(Request $request) {
+        $query = Saida::with(['tipoSaida', 'membro']);
+    
+        // Filtro por nome do tipo de saída
+        if ($request->filled('nome')) {
+            $query->whereHas('tipoSaida', function ($q) use ($request) {
+                $q->where('tipo_saida', 'LIKE', '%' . $request->nome . '%');
+            });
+        }
+    
+        // Filtro por status
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+    
+        $saidas = $query->orderBy('id')->get();
+    
         return view('consultas.grid_cadastro_saida', ['saidas' => $saidas]);
-    }
+    }    
 
     public function showSaida($id) {
         $saida = Saida::findOrFail($id);

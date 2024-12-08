@@ -10,7 +10,7 @@
 </div>
 
 <div class="col-md-10 offset-md-1 grid-tipo-entrada-filter-container">
-    <form method="GET" action="{{ route('consulta_tipo_saida') }}">
+    <form method="GET" action="{{ route('consulta_saida') }}">
         <div class="form-row">
             <div class="col">
                 <label for="nome">Nome:</label>
@@ -26,7 +26,7 @@
             </div>
             <div class="col d-flex align-items-end">
                 <button type="submit" class="btn btn-primary mr-2">Filtrar</button>
-                <a href="{{ route('consulta_tipo_saida') }}" class="btn btn-secondary">Limpar</a>
+                <a href="{{ route('consulta_saida') }}" class="btn btn-secondary">Limpar</a>
             </div>
         </div>
     </form>

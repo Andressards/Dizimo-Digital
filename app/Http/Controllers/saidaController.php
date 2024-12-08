@@ -90,18 +90,55 @@ class SaidaController extends Controller
     }
 
     public function updateSaida(Request $request, $id) {
-        $saidas = Saida::findOrFail($id);
-
-        $saidas->valor = $request->valor;
-        $saidas->data_saida = $request->data_saida;
-        $saidas->id_saida_tipo = $request->tipo_saida;
-        $saidas->id_prestador_servico = $request->prestador_servico;
-        $saidas->descricao_diversos = $request->descricao;
-
-        $saidas->save();
+        // Validação dos dados recebidos
+        $validatedData = $request->validate([
+            'valor' => 'required|numeric',
+            'data_saida' => 'required|date',
+            'tipo_saida' => 'required|exists:saida_tipo,id',
+            'prestador_servico' => 'required|exists:prestador_servico,id',
+            'descricao' => 'nullable|string',
+        ]);
     
+        // Busca a saída existente no banco de dados
+        $saida = Saida::findOrFail($id);
+    
+        // Obtém o valor antigo para recalcular o saldo
+        $valor_antigo = $saida->valor;
+    
+        // Atualiza os campos da saída
+        $saida->valor = $request->valor;
+        $saida->data_saida = $request->data_saida;
+        $saida->id_saida_tipo = $request->tipo_saida;
+        $saida->id_prestador_servico = $request->prestador_servico;
+        $saida->descricao_diversos = $request->descricao;
+        $saida->save();
+    
+        // Recupera o saldo atual do fluxo de caixa
+        $saldo_atual = FluxoCaixa::orderBy('id', 'desc')->first()->saldo ?? 0;
+    
+        // Calcula o novo saldo considerando a diferença entre o valor antigo e o novo
+        $diferenca_valor = $valor_antigo - $request->valor;
+        $novo_saldo = $saldo_atual + $diferenca_valor;
+    
+        // Atualiza o fluxo de caixa
+        DB::beginTransaction();
+    
+        try {
+            // Insere um novo registro no fluxo de caixa com o saldo atualizado
+            DB::insert('INSERT INTO fluxo_caixa (saldo, id_saida, created_at) VALUES (?, ?, ?)', [$novo_saldo, $saida->id, now()]);
+    
+            // Confirma a transação
+            DB::commit();
+        } catch (\Exception $e) {
+            // Desfaz a transação em caso de erro
+            DB::rollback();
+            return back()->with('error', 'Ocorreu um erro ao atualizar a saída.');
+        }
+    
+        // Redireciona após sucesso
         return redirect('/consultas/grid_cadastro_saida')->with('msg', 'Cadastro atualizado com sucesso!');
     }
+    
 
     public function ativar($id)
     {
